@@ -13,6 +13,11 @@ Write up: http://philogb.github.io/mobility-flow-france/
 - there's no origin, which we may want to highlight Syria as
 - the coloring does make it easier to understand specific regions
 
+Immigration Explorer
+http://www.nytimes.com/interactive/2009/03/10/us/20090310-immigration-explorer.html?ref=us&_r=0
+- The time slider is nice
+- A bit too many colors to see any particular patterns
+
 Wind Motion Patterns
 http://www.senchalabs.org/philogl/PhiloGL/examples/winds/
 - obscures the map too much
