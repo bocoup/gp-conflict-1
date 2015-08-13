@@ -1,5 +1,9 @@
 # examples of maps showing mobility
 
+Racial Divide
+http://vallandingham.me/racial_divide/
+- I think this is really appealing.
+
 American Migration
 http://www.forbes.com/special-report/2011/migration.html
 - Looks interesting
