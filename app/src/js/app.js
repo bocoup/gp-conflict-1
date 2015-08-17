@@ -1,4 +1,5 @@
 var margin = 100;
+var year = '2014';
 var countrydata, statsdata = {};
 
 var svg = d3.select("#map")
@@ -7,6 +8,29 @@ var projection = d3.geo.fahey();
 var path = d3.geo.path()
   .projection(projection);
 
+
+// tiny data load tracker, kicking off rendering when all data
+// is ready.
+var ready = (function() {
+  var howmany = 0;
+  var args = {};
+
+  return function(opts) {
+
+    if (typeof opts !== 'undefined') {
+      // copy args, this only does flat args...
+      for (var attrname in opts) { args[attrname] = opts[attrname]; }
+    }
+
+    if (++howmany === 2) {
+      draw(args);
+
+      window.addEventListener("resize", function() {
+        draw(args);
+      });
+    }
+  };
+}());
 
 // load map shape file
 d3.json('data/world_map_topojson.json', function(error, topology) {
@@ -17,6 +41,8 @@ d3.json('data/world_map_topojson.json', function(error, topology) {
   // cache geodata
   countrydata = topojson.feature(topology, topology.objects.countries)
     .features;
+
+  ready();
 });
 
 // load stats data
@@ -26,18 +52,34 @@ d3.json('data/stats.json', function(error, stats) {
     throw error;
   }
 
+  var max = 0;
+  var min = 0;
   // transform stats into a hashmap.
   stats.forEach(function(country) {
-    statsdata[country.Destination] = {
-      '2011' : stats['2011'],
-      '2012' : stats['2012'],
-      '2013' : stats['2013'],
-      '2014' : stats['2014']
+    var s = statsdata[country.Destination] = {
+      '2011' : Util.zeroIfNan(country['2011']),
+      '2012' : Util.zeroIfNan(country['2012']),
+      '2013' : Util.zeroIfNan(country['2013']),
+      '2014' : Util.zeroIfNan(country['2014'])
     };
+
+    // update max
+    max = Math.max(s['2011'], s['2012'], s['2013'], s['2014'], max);
+    // max = Math.max(s[year], max);
+  });
+
+  ready({
+    data_max: max,
+    data_min: min
   });
 });
 
-function draw() {
+/**
+* Main draw routine. Expected args:
+*   data_min - min value of refugees, likely 0?
+*   data_max - max value of refugees, per year.
+*/
+function draw(args) {
 
   // get dimensions
   var dims = Util.getWindowSize();
@@ -45,12 +87,22 @@ function draw() {
   var width = Math.min(dims.width - margin - margin, 900),
       height = width * 0.65;
 
+  // full world zoom:
+  // projection
+  //   .translate([dims.width / 2.25, height / 1.75])
+  //   .scale(width * 0.2);
+
+  // middle zoom
   projection
-    .translate([dims.width / 2.25, height / 1.75])
-    .scale(width * 0.2);
+    .translate([dims.width / 2.25, height / 1.1])
+    .scale(width * 0.4);
 
   svg.attr("width", dims.width)
      .attr("height", dims.height);
+
+  var colors = d3.scale.linear()
+    .domain([args.data_min, args.data_max])
+    .range(['#eaeaea', 'red']);
 
   var countries = svg.selectAll("path")
     .data(countrydata);
@@ -59,14 +111,40 @@ function draw() {
   countries.enter().append("path")
     .attr("name", function(d) {
       return d.properties.name;
+    })
+    .style("fill", function(d) {
+      // do we have data for this country?
+      if (d.properties.name === 'Syria') {
+        return '#499EBA';
+      } else if (typeof statsdata[d.properties.name] !== 'undefined') {
+        return colors(statsdata[d.properties.name][year]);
+      } else {
+        if (d.properties.name === 'Antarctica') {
+          return '#fff';
+        } else {
+          return '#eaeaea';
+        }
+      }
+    })
+    .style('stroke', function(d) {
+      if (d.properties.name === 'Syria') {
+        return '#499EBA';
+      } else {
+        return '#fff';
+      }
+    })
+    .style('stroke-width', function(d) {
+      if (d.properties.name === 'Syria') {
+        return '1px';
+      } else {
+        return '0px';
+      }
     });
+
+  d3.select('path[name="Syria"]').moveToFront();
 
   // set the path and attr
   countries.attr("d", path);
 }
 
-draw();
 
-window.addEventListener("resize", function() {
-  draw();
-});
