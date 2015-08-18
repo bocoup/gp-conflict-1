@@ -31,3 +31,5 @@ Timeline:
 - Ideally have it to them before Sept 8th (need to check in with Nick about this.)
 
 
+Look at:
+https://github.com/tafsiri/sketches/blob/master/001/js/d3sketch.js
