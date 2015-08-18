@@ -45,6 +45,12 @@ d3.selection.prototype.moveToFront = function() {
 var margin = 100;
 var year = '2014';
 var countrydata, statsdata = {};
+var specialColors = {
+  'highlight' : '#499EBA',
+  'hidden' : '#fff',
+  'lineDark' : '#555',
+  'lineLight' : '#999'
+};
 
 var svg = d3.select("#map")
   .append("svg");
@@ -70,6 +76,8 @@ var ready = (function() {
       draw(args);
 
       window.addEventListener("resize", function() {
+        svg.remove();
+        svg = d3.select("#map").append("svg");
         draw(args);
       });
     }
@@ -107,6 +115,8 @@ d3.json('data/stats.json', function(error, stats) {
       '2014' : Util.zeroIfNan(country['2014'])
     };
 
+    s['Total'] = s['2011'] + s['2012'] + s['2013'] + s['2014'];
+
     // update max
     max = Math.max(s['2011'], s['2012'], s['2013'], s['2014'], max);
     // max = Math.max(s[year], max);
@@ -131,6 +141,7 @@ function draw(args) {
   var width = Math.min(dims.width - margin - margin, 900),
       height = width * 0.65;
 
+
   // full world zoom:
   // projection
   //   .translate([dims.width / 2.25, height / 1.75])
@@ -144,12 +155,23 @@ function draw(args) {
   svg.attr("width", dims.width)
      .attr("height", dims.height);
 
+  svg.append("rect")
+    .classed("sea", true)
+    .attr({
+      x : 0, y : 0, width: dims.width, height: dims.width
+    })
+    .style("fill", "#ccc");
+
   var colors = d3.scale.linear()
     .domain([args.data_min, args.data_max])
-    .range(['#eaeaea', 'red']);
+    .range(['#fff', 'red']);
 
-  var countries = svg.selectAll("path")
-    .data(countrydata);
+  // ---- render map of countries ----
+  var countriesGroup = svg.append("g")
+    .classed("countries", true);
+
+  var countries = countriesGroup.selectAll("path")
+    .data(countrydata, function(d) { return d.properties.name; });
 
   // add new elements on enter
   countries.enter().append("path")
@@ -159,36 +181,100 @@ function draw(args) {
     .style("fill", function(d) {
       // do we have data for this country?
       if (d.properties.name === 'Syria') {
-        return '#499EBA';
+        return specialColors.highlight;
       } else if (typeof statsdata[d.properties.name] !== 'undefined') {
         return colors(statsdata[d.properties.name][year]);
       } else {
-        if (d.properties.name === 'Antarctica') {
-          return '#fff';
-        } else {
-          return '#eaeaea';
-        }
+        return specialColors.hidden;
       }
     })
     .style('stroke', function(d) {
-      if (d.properties.name === 'Syria') {
-        return '#499EBA';
-      } else {
-        return '#fff';
-      }
+      // if (d.properties.name === 'Syria') {
+      //   return specialColors.highlight;
+      // } else if (typeof statsdata[d.properties.name] !== 'undefined') {
+      //   return colors(statsdata[d.properties.name][year]);
+      // } else {
+      //   return specialColors.hidden;
+      // }
+
+      return specialColors.lineLight;
     })
     .style('stroke-width', function(d) {
-      if (d.properties.name === 'Syria') {
-        return '1px';
-      } else {
-        return '0px';
-      }
+      return '1px';
     });
 
-  d3.select('path[name="Syria"]').moveToFront();
+  d3.selectAll("path[raise=true]").moveToFront();
+  var syria = d3.select('path[name="Syria"]').moveToFront();
+  var syriaCenter = path.centroid(syria.datum());
+  d3.select('path[name="Antarctica"]').remove();
 
   // set the path and attr
   countries.attr("d", path);
+
+  // ----- render lines -------
+  var linesGroup = svg.append("g")
+    .classed("groups", true);
+
+  var lines = linesGroup.selectAll("line")
+    .data(countrydata, function(d) { return d.properties.name; });
+
+  var lineg = lines.enter()
+    .append("g");
+
+
+  var pos = {
+    "x1" : syriaCenter[0],
+    "y1" : syriaCenter[1],
+    "x2" : function(d) {
+      return path.centroid(d)[0];
+    },
+    "y2" : function(d) {
+      return path.centroid(d)[1];
+    }
+  };
+
+  // background black outline line
+  lineg.append("line")
+    .attr(pos)
+    .style({
+      'stroke-width':  function(d) {
+        if ((typeof statsdata[d.properties.name] !== 'undefined') &&
+           (statsdata[d.properties.name][year] > 10000)) {
+          return 4;
+        } else {
+          return 0;
+        }
+      },
+      'stroke': specialColors.lineDark
+    });
+
+  // color line
+  lineg.append("line")
+      .attr(pos)
+      .style({
+        "stroke-width": function(d) {
+          // only show top 5%
+          if ((typeof statsdata[d.properties.name] !== 'undefined') &&
+             (statsdata[d.properties.name][year] > 10000)) {
+            return 2;
+          } else {
+            return 0;
+          }
+        },
+        "stroke": function(d) {
+          if (typeof statsdata[d.properties.name] !== 'undefined') {
+            return colors(statsdata[d.properties.name][year]);
+            //return '#222';
+            //return '#499EBA';
+          }
+        }
+      });
+
+  // move syria to the front
+  // syria.remove();
+  // svg.append("g").node()
+  //   .appendChild(syria.node());
+
 }
 
 
