@@ -23,6 +23,7 @@
   "dependencies": {
     "d3": "~3.5.6",
     "topojson": "~1.6.19",
-    "d3-geo-projection": "~0.2.15"
+    "d3-geo-projection": "~0.2.15",
+    "bluebird": "~2.9.34"
   }
 }

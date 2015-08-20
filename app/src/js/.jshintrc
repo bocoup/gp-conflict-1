@@ -16,6 +16,7 @@
   "globals": {
     "d3": true,
     "topojson": true,
-    "Util": true
+    "Util": true,
+    "Data": true
   }
 }

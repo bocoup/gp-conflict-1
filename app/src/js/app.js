@@ -1,6 +1,6 @@
+
 var margin = 100;
 var year = '2014';
-var countrydata, statsdata = {};
 var specialColors = {
   'highlight' : '#499EBA',
   'hidden' : '#fff',
@@ -15,77 +15,28 @@ var path = d3.geo.path()
   .projection(projection);
 
 
-// tiny data load tracker, kicking off rendering when all data
-// is ready.
-var ready = (function() {
-  var howmany = 0;
-  var args = {};
-
-  return function(opts) {
-
-    if (typeof opts !== 'undefined') {
-      // copy args, this only does flat args...
-      for (var attrname in opts) { args[attrname] = opts[attrname]; }
-    }
-
-    if (++howmany === 2) {
-      draw(args);
-
-      window.addEventListener("resize", function() {
-        svg.remove();
-        svg = d3.select("#map").append("svg");
-        draw(args);
-      });
-    }
-  };
-}());
-
-// load map shape file
-d3.json('data/world_map_topojson.json', function(error, topology) {
-
-  if (error) {
-    throw error;
-  }
-  // cache geodata
-  countrydata = topojson.feature(topology, topology.objects.countries)
-    .features;
-
-  ready();
-});
-
-// load stats data
-d3.json('data/stats.json', function(error, stats) {
-
-  if (error) {
-    throw error;
-  }
-
-  var max = 0;
-  var min = 0;
-  // transform stats into a hashmap.
-  stats.forEach(function(country) {
-    var s = statsdata[country.Destination] = {
-      '2011' : Util.zeroIfNan(country['2011']),
-      '2012' : Util.zeroIfNan(country['2012']),
-      '2013' : Util.zeroIfNan(country['2013']),
-      '2014' : Util.zeroIfNan(country['2014'])
+Promise.join(Data.getCountryStats(), Data.getMapFeatures(),
+  function(countryStats, mapFeatures) {
+    var args = {
+      mapFeatures: mapFeatures,
+      countryStats: countryStats.data,
+      data_min: countryStats.data_min,
+      data_max: countryStats.data_max
     };
 
-    s['Total'] = s['2011'] + s['2012'] + s['2013'] + s['2014'];
+    draw(args);
 
-    // update max
-    max = Math.max(s['2011'], s['2012'], s['2013'], s['2014'], max);
-    // max = Math.max(s[year], max);
+    window.addEventListener("resize", function() {
+      svg.remove();
+      svg = d3.select("#map").append("svg");
+      draw(args);
+    });
   });
-
-  ready({
-    data_max: max,
-    data_min: min
-  });
-});
 
 /**
 * Main draw routine. Expected args:
+*   mapFeatures - map data
+*   countryStats - country data
 *   data_min - min value of refugees, likely 0?
 *   data_max - max value of refugees, per year.
 */
@@ -96,7 +47,6 @@ function draw(args) {
 
   var width = Math.min(dims.width - margin - margin, 900),
       height = width * 0.65;
-
 
   // full world zoom:
   // projection
@@ -127,7 +77,7 @@ function draw(args) {
     .classed("countries", true);
 
   var countries = countriesGroup.selectAll("path")
-    .data(countrydata, function(d) { return d.properties.name; });
+    .data(args.mapFeatures, function(d) { return d.properties.name; });
 
   // add new elements on enter
   countries.enter().append("path")
@@ -138,8 +88,8 @@ function draw(args) {
       // do we have data for this country?
       if (d.properties.name === 'Syria') {
         return specialColors.highlight;
-      } else if (typeof statsdata[d.properties.name] !== 'undefined') {
-        return colors(statsdata[d.properties.name][year]);
+      } else if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+        return colors(args.countryStats[d.properties.name][year]);
       } else {
         return specialColors.hidden;
       }
@@ -147,8 +97,8 @@ function draw(args) {
     .style('stroke', function(d) {
       // if (d.properties.name === 'Syria') {
       //   return specialColors.highlight;
-      // } else if (typeof statsdata[d.properties.name] !== 'undefined') {
-      //   return colors(statsdata[d.properties.name][year]);
+      // } else if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+      //   return colors(args.countryStats[d.properties.name][year]);
       // } else {
       //   return specialColors.hidden;
       // }
@@ -172,7 +122,7 @@ function draw(args) {
     .classed("groups", true);
 
   var lines = linesGroup.selectAll("line")
-    .data(countrydata, function(d) { return d.properties.name; });
+    .data(args.countryStats, function(d) { return d.properties.name; });
 
   var lineg = lines.enter()
     .append("g");
@@ -194,8 +144,8 @@ function draw(args) {
     .attr(pos)
     .style({
       'stroke-width':  function(d) {
-        if ((typeof statsdata[d.properties.name] !== 'undefined') &&
-           (statsdata[d.properties.name][year] > 10000)) {
+        if ((typeof args.countryStats[d.properties.name] !== 'undefined') &&
+           (args.countryStats[d.properties.name][year] > 10000)) {
           return 4;
         } else {
           return 0;
@@ -210,16 +160,16 @@ function draw(args) {
       .style({
         "stroke-width": function(d) {
           // only show top 5%
-          if ((typeof statsdata[d.properties.name] !== 'undefined') &&
-             (statsdata[d.properties.name][year] > 10000)) {
+          if ((typeof args.countryStats[d.properties.name] !== 'undefined') &&
+             (args.countryStats[d.properties.name][year] > 10000)) {
             return 2;
           } else {
             return 0;
           }
         },
         "stroke": function(d) {
-          if (typeof statsdata[d.properties.name] !== 'undefined') {
-            return colors(statsdata[d.properties.name][year]);
+          if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+            return colors(args.countryStats[d.properties.name][year]);
             //return '#222';
             //return '#499EBA';
           }
@@ -232,5 +182,3 @@ function draw(args) {
   //   .appendChild(syria.node());
 
 }
-
-

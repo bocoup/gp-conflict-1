@@ -6,10 +6,12 @@ module.exports = function(grunt) {
     deps: [
       'bower_components/d3/d3.js',
       'bower_components/topojson/topojson.js',
-      'bower_components/d3-geo-projection/d3.geo.projection.js'
+      'bower_components/d3-geo-projection/d3.geo.projection.js',
+      'bower_components/bluebird/js/browser/bluebird.js'
     ],
     src: [
       'src/js/util.js',
+      'src/js/data.js',
       'src/js/app.js',
     ]
   });
