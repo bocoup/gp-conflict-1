@@ -48,6 +48,24 @@ window.Data = {
     return def.promise;
   },
 
+  getCountryCentroidFeatures: function() {
+    var countrydata;
+
+    var def = Promise.defer();
+
+    // load map shape file
+    d3.json('data/countries_centroids.geojson', function(error, centroids) {
+
+      if (error) {
+        def.reject(error);
+      }
+
+      def.resolve(centroids);
+    });
+
+    return def.promise;
+  },
+
   getMapFeatures: function() {
     var countrydata;
 

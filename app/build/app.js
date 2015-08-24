@@ -92,6 +92,24 @@ window.Data = {
     return def.promise;
   },
 
+  getCountryCentroidFeatures: function() {
+    var countrydata;
+
+    var def = Promise.defer();
+
+    // load map shape file
+    d3.json('data/countries_centroids.geojson', function(error, centroids) {
+
+      if (error) {
+        def.reject(error);
+      }
+
+      def.resolve(centroids);
+    });
+
+    return def.promise;
+  },
+
   getMapFeatures: function() {
     var countrydata;
 
@@ -113,182 +131,127 @@ window.Data = {
     return def.promise;
   }
 };
+var popupTemplate = _.template("<h3> <%= d.id %> </h3> \
+  <p> \
+    In 2014, <%= d.id %> took in <b><%= d3.format('0,')(d.data['2014']) %></b> refugees. \
+  </p>");
 
-var margin = 100;
-var year = '2014';
-var specialColors = {
-  'highlight' : 'MidnightBlue',
-  'hidden' : '#fff',
-  'lineDark' : '#555',
-  'lineLight' : '#999'
-};
+L.mapbox.accessToken = 'pk.eyJ1IjoiaXIwcyIsImEiOiJzRW9ObDVJIn0.Yjg0YkF_gr1teCBLJVyeoQ';
 
-var svg = d3.select("#map")
-  .append("svg");
-var projection = d3.geo.fahey();
-var path = d3.geo.path()
-  .projection(projection);
+// initialize Base Map
+d3.select('#map')
+  .style({
+    width: '80%',
+    height: 600
+  });
+
+// create map, center on Syria
+var map = L.mapbox.map('map', 'ir0s.n8mo8g3c')
+    .setView([35.693, 33.08], 6);
+
+// Disable drag and zoom handlers.
+// map.dragging.disable();
+// map.touchZoom.disable();
+// map.doubleClickZoom.disable();
+// map.scrollWheelZoom.disable();
+
+// // Disable tap handler, if present.
+// if (map.tap) {map.tap.disable();}
 
 
-Promise.join(Data.getCountryStats(), Data.getMapFeatures(),
-  function(countryStats, mapFeatures) {
-    var args = {
-      mapFeatures: mapFeatures,
+Promise.join(Data.getCountryStats(),
+    Data.getCountryCentroidFeatures(),
+    Data.getMapFeatures(),
+
+  function(countryStats, countryCenters, features) {
+    var data = {
+      countries: countryCenters,
+      features: features,
       countryStats: countryStats.data,
       data_min: countryStats.data_min,
       data_max: countryStats.data_max
     };
 
-    draw(args);
+    draw(data);
+});
 
-    window.addEventListener("resize", function() {
-      svg.remove();
-      svg = d3.select("#map").append("svg");
-      draw(args);
-    });
-  });
-
-/**
-* Main draw routine. Expected args:
-*   mapFeatures - map data
-*   countryStats - country data
-*   data_min - min value of refugees, likely 0?
-*   data_max - max value of refugees, per year.
-*/
+var year = '2014';
 function draw(args) {
 
-  // get dimensions
-  var dims = { width: 1000, height: 600 };
+  // Initialize the SVG layer
+  map._initPathRoot();
 
-  var width = Math.min(dims.width - margin - margin, 900),
-      height = width * 0.65;
+  // We simply pick up the SVG from the map object
+  var svg = d3.select("#map").select("svg");
 
-  // full world zoom:
-  projection
-    .translate([dims.width / 2.25, height / 1.4])
-    .scale(width * 0.25);
-
-  // middle
-  // projection
-  //   .translate([dims.width / 4.7, dims.height / 0.6])
-  //   .scale(dims.width * 1.2);
-
-  svg.attr("width", dims.width)
-     .attr("height", dims.height);
-
-  svg.append("rect")
-    .classed("sea", true)
-    .attr({
-      x : 0, y : 0, width: dims.width, height: dims.width
-    })
-    .style("fill", "#ccc");
-
-  var colors = d3.scale.linear()
-    .domain([args.data_min, args.data_max])
-    .range(['#fff', 'red']);
-
-  // ---- render map of countries ----
-  var countriesGroup = svg.append("g")
-    .classed("countries", true);
-
-  var countries = countriesGroup.selectAll("path")
-    .data(args.mapFeatures, function(d) { return d.properties.name; });
-
-  // add new elements on enter
-  countries.enter().append("path")
-    .attr("name", function(d) {
-      return d.properties.name;
-    })
-    .style("fill", function(d) {
-      // do we have data for this country?
-      if (d.properties.name === 'Syria') {
-        return specialColors.highlight;
-      // } else if (typeof args.countryStats[d.properties.name] !== 'undefined') {
-      //   return colors(args.countryStats[d.properties.name][year]);
-      } else {
-        return specialColors.hidden;
-      }
-    })
-    .style('stroke', function(d) {
-      // if (d.properties.name === 'Syria') {
-      //   return specialColors.highlight;
-      // } else if (typeof args.countryStats[d.properties.name] !== 'undefined') {
-      //   return colors(args.countryStats[d.properties.name][year]);
-      // } else {
-      //   return specialColors.hidden;
-      // }
-
-      return specialColors.lineLight;
-    })
-    .style('stroke-width', function(d) {
-      return '1px';
-    });
-
-  d3.selectAll("path[raise=true]").moveToFront();
-  var syria = d3.select('path[name="Syria"]').moveToFront();
-  var syriaCenter = path.centroid(syria.datum());
-  d3.select('path[name="Antarctica"]').remove();
-
-  // set the path and attr
-  countries.attr("d", path);
-
-  //=== add circle to each ===
   var circleScale = d3.scale.sqrt()
     .domain([args.data_min, args.data_max])
-    .range([3, 40]);
+    .range([8, 50]);
 
-  var circleOpacityScale = d3.scale.sqrt()
-    .domain([args.data_min, args.data_max])
-    .range([0.2, 0.6]);
+  // assemble layer
+  args.countries.features.forEach(function(d) {
+    var r = 8;
 
-  var circlesg = svg.append("g")
-    .classed("circles", true);
+    if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+      r = circleScale(args.countryStats[d.properties.name][year]);
+    }
 
-  var circlesbinding = circlesg.selectAll('g')
-    .data(args.mapFeatures, function(d) { return d.properties.name; });
+    d['LatLng'] = new L.LatLng(d.geometry.coordinates[1],
+                  d.geometry.coordinates[0]);
+    d['r'] = r;
+    d['id'] = d.properties.name;
+    d['data'] = args.countryStats[d.properties.name];
 
-  circlesbinding.enter()
-    .append('g')
-    .each(function(d) {
+  });
 
-      var g = d3.select(this);
+  // draw circles
+  var circlesg = svg.append("g").classed("circles", true);
+  var binding = circlesg.selectAll('circle')
+    .data(args.countries.features, function(d) { return d.id; });
 
-      // -- append cirlce
-      var r = 3, opacity = 0.2;
-
-      // find centroid
-      var centroid = path.centroid(d);
-
-      // set radius
-      if (typeof args.countryStats[d.properties.name] !== 'undefined') {
-        r = circleScale(args.countryStats[d.properties.name][year]);
-        opacity = circleOpacityScale(args.countryStats[d.properties.name][year]);
-      }
-
-      g.append('circle').attr({
-        'cx' : centroid[0],
-        'cy' : centroid[1],
-        'r'  : r,
-        'opacity': opacity
-      });
-
-      // -- append center lbl
-      g.append('text').attr({
-        'x' : centroid[0],
-        'y' : centroid[1] + 2,
-        'text-anchor' : 'middle',
-        'font-size' : 8,
-        'font-family': 'sans-serif',
-        'fill' : 'DarkSlateGray',
-        'opacity': 0.5
-      }).text('x');
-
-
+  binding.enter()
+    .append('circle')
+    .attr({
+      'r' : function(d) { return d.r; },
+      'country' : function(d) { return d.id; }
+    }).style({
+      'fill' : 'teal',
+      'opacity': '0.5'
     });
 
-  // move syria to the front
-  // syria.remove();
-  // svg.append("g").node()
-  //   .appendChild(syria.node());
+  binding.on('mouseover', function(d) {
 
+    var popup = L.popup()
+      .setLatLng(d.LatLng)
+      .setContent(popupTemplate({ d : d }));
+      // .openOn(map);
+
+    map.openPopup(popup, d.LatLng);
+  });
+
+  binding.on('mouseout', function(d) {
+    map.closePopup();
+  });
+
+  function update() {
+    console.log("update");
+    binding.attr(
+      "transform", function(d) {
+        return "translate("+
+          map.latLngToLayerPoint(d.LatLng).x +","+
+          map.latLngToLayerPoint(d.LatLng).y +")";
+      }
+    );
+  }
+  map.on("viewreset", update);
+  update();
 }
+
+
+
+// queue()
+//   .defer(d3.json, "test.geojson")
+//   .await(ready);
+// function ready(error, data) {
+//   L.geoJson(data).addTo(map);
+// }

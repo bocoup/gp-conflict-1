@@ -13,11 +13,13 @@
   "browser": true,
   "esnext": true,
   "devel": true,
+  "multistr": true,
   "globals": {
     "d3": true,
     "topojson": true,
     "Util": true,
     "Data": true,
-    "_": true
+    "_": true,
+    "L": true
   }
 }

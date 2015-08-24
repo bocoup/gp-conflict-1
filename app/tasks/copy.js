@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     data: {
       expand: true,
       cwd: "src/data/",
-      src: ["*.json"],
+      src: ["*.json", "*.geojson"],
       dest: "build/data"
     },
     html: {
