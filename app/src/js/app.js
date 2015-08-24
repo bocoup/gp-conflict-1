@@ -1,139 +1,179 @@
-// get data
-var getStats = Data.getCountryStats();
 
-// get window dimensions... note this isn't built for resizing yet.
-var dims = Util.getWindowSize();
-
-var SlopeGraph = function(el, data, dims, left, right, label) {
-
-  this.dims = dims;
-
-  // use first 10 countries
-  this.data = d3.entries(data).slice(0,7);
-
-  // fields/functions to use for sides.
-  this.left = left;
-  this.right = right;
-  this.label = label;
-
-  // margins for labels
-  this.labelMargins = 100;
-  this.verticalMargins = 20;
-
-  // base for slope graph
-  this.svg = d3.select(el)
-    .append('svg')
-    .attr('width', dims.width)
-    .attr('height', dims.height)
-    .append('g')
-    .attr('transform', 'translate(0, '+this.verticalMargins+')');
+var margin = 100;
+var year = '2014';
+var specialColors = {
+  'highlight' : 'MidnightBlue',
+  'hidden' : '#fff',
+  'lineDark' : '#555',
+  'lineLight' : '#999'
 };
 
-SlopeGraph.prototype.render = function() {
-  var self = this;
+var svg = d3.select("#map")
+  .append("svg");
+var projection = d3.geo.fahey();
+var path = d3.geo.path()
+  .projection(projection);
 
-  // the y extent should be the min across left and right
-  // going to the max across left and right.
-  var leftExtent = d3.extent(this.data, this.left);
-  var rightExtent = d3.extent(this.data, this.right);
-  var overallExtent = [
-    Math.min(leftExtent[0], rightExtent[0]),
-    Math.max(leftExtent[1], rightExtent[1])
-  ];
 
-  // define y scale
-  var yScale = d3.scale.linear()
-    .domain(overallExtent)
-    .range([this.dims.height - (2 * this.verticalMargins), 0]);
+Promise.join(Data.getCountryStats(), Data.getMapFeatures(),
+  function(countryStats, mapFeatures) {
+    var args = {
+      mapFeatures: mapFeatures,
+      countryStats: countryStats.data,
+      data_min: countryStats.data_min,
+      data_max: countryStats.data_max
+    };
 
-  // === draw y axes
-  var axes = this.svg.append("g")
-    .classed("axes", true);
+    draw(args);
 
-  var axesPos = { x1 : 0, y1 : 0, x2: 0, y2 : this.dims.height - 2 * this.verticalMargins};
-
-  // left -> right
-  axes.append("line")
-    .attr(axesPos)
-    .attr("transform", "translate(" + this.labelMargins + ",0)");
-  axes.append("line")
-    .attr(axesPos)
-    .attr("transform", "translate(" + (this.dims.width - this.labelMargins) + ",0)");
-
-  // === draw labels
-  // each label: g (2 text, one left, one right.)
-  var labelsContainer = this.svg.append("g")
-    .classed("labels", true);
-
-  var labels = labelsContainer.selectAll("g")
-    .data(this.data, function(d) { return d.key; });
-
-  var lg = labels.enter()
-    .append("g");
-
-    function getY(attr) {
-      return function(d) {
-        if (typeof self[attr] === "function") {
-          return yScale(self[attr](d));
-        } else {
-          return yScale(d.value[self[attr]]);
-        }
-      };
-    }
-
-    lg.append("text")
-      .classed("left", true)
-      .attr({
-        x : 0,
-        y: getY('left')
-      })
-      .text(function(d) { return d.key; });
-
-    lg.append("text")
-      .classed("right", true)
-      .attr({
-        x : 0,
-        y: getY('right')
-      })
-      .attr("transform", "translate("+(this.dims.width - this.labelMargins)+",0)")
-      .text(function(d) { return d.key; });
-
-  // === draw lines
-  var lines = this.svg.append("g")
-    .classed("lines", true)
-    .selectAll('line')
-    .data(this.data, function(d) { return d.key; });
-
-  lines.enter()
-    .append("line")
-    .attr({
-      x1 : 0,
-      x2 : this.dims.width - (2 * this.labelMargins),
-      y1 : getY('left'),
-      y2 : getY('right'),
-      transform : "translate(" + this.labelMargins + ",0)"
+    window.addEventListener("resize", function() {
+      svg.remove();
+      svg = d3.select("#map").append("svg");
+      draw(args);
     });
-};
+  });
 
-getStats.then(function(stats) {
-  var dims = {
-    width: 500, height: 600
-  };
-  var s = new SlopeGraph('#map-3 .slope1', stats.data, dims, function(d) {
-    return d.value['2012'];
-  }, function(d) {
-    return d.value['2014'];
-  }, 'Destination');
-  s.render();
+/**
+* Main draw routine. Expected args:
+*   mapFeatures - map data
+*   countryStats - country data
+*   data_min - min value of refugees, likely 0?
+*   data_max - max value of refugees, per year.
+*/
+function draw(args) {
+
+  // get dimensions
+  var dims = { width: 1000, height: 600 };
+
+  var width = Math.min(dims.width - margin - margin, 900),
+      height = width * 0.65;
+
+  // full world zoom:
+  projection
+    .translate([dims.width / 2.25, height / 1.4])
+    .scale(width * 0.25);
+
+  // middle
+  // projection
+  //   .translate([dims.width / 4.7, dims.height / 0.6])
+  //   .scale(dims.width * 1.2);
+
+  svg.attr("width", dims.width)
+     .attr("height", dims.height);
+
+  svg.append("rect")
+    .classed("sea", true)
+    .attr({
+      x : 0, y : 0, width: dims.width, height: dims.width
+    })
+    .style("fill", "#ccc");
+
+  var colors = d3.scale.linear()
+    .domain([args.data_min, args.data_max])
+    .range(['#fff', 'red']);
+
+  // ---- render map of countries ----
+  var countriesGroup = svg.append("g")
+    .classed("countries", true);
+
+  var countries = countriesGroup.selectAll("path")
+    .data(args.mapFeatures, function(d) { return d.properties.name; });
+
+  // add new elements on enter
+  countries.enter().append("path")
+    .attr("name", function(d) {
+      return d.properties.name;
+    })
+    .style("fill", function(d) {
+      // do we have data for this country?
+      if (d.properties.name === 'Syria') {
+        return specialColors.highlight;
+      // } else if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+      //   return colors(args.countryStats[d.properties.name][year]);
+      } else {
+        return specialColors.hidden;
+      }
+    })
+    .style('stroke', function(d) {
+      // if (d.properties.name === 'Syria') {
+      //   return specialColors.highlight;
+      // } else if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+      //   return colors(args.countryStats[d.properties.name][year]);
+      // } else {
+      //   return specialColors.hidden;
+      // }
+
+      return specialColors.lineLight;
+    })
+    .style('stroke-width', function(d) {
+      return '1px';
+    });
+
+  d3.selectAll("path[raise=true]").moveToFront();
+  var syria = d3.select('path[name="Syria"]').moveToFront();
+  var syriaCenter = path.centroid(syria.datum());
+  d3.select('path[name="Antarctica"]').remove();
+
+  // set the path and attr
+  countries.attr("d", path);
+
+  //=== add circle to each ===
+  var circleScale = d3.scale.sqrt()
+    .domain([args.data_min, args.data_max])
+    .range([3, 40]);
+
+  var circleOpacityScale = d3.scale.sqrt()
+    .domain([args.data_min, args.data_max])
+    .range([0.2, 0.6]);
+
+  var circlesg = svg.append("g")
+    .classed("circles", true);
+
+  var circlesbinding = circlesg.selectAll('g')
+    .data(args.mapFeatures, function(d) { return d.properties.name; });
+
+  circlesbinding.enter()
+    .append('g')
+    .each(function(d) {
+
+      var g = d3.select(this);
+
+      // -- append cirlce
+      var r = 3, opacity = 0.2;
+
+      // find centroid
+      var centroid = path.centroid(d);
+
+      // set radius
+      if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+        r = circleScale(args.countryStats[d.properties.name][year]);
+        opacity = circleOpacityScale(args.countryStats[d.properties.name][year]);
+      }
+
+      g.append('circle').attr({
+        'cx' : centroid[0],
+        'cy' : centroid[1],
+        'r'  : r,
+        'opacity': opacity
+      });
+
+      // -- append center lbl
+      g.append('text').attr({
+        'x' : centroid[0],
+        'y' : centroid[1] + 2,
+        'text-anchor' : 'middle',
+        'font-size' : 8,
+        'font-family': 'sans-serif',
+        'fill' : 'DarkSlateGray',
+        'opacity': 0.5
+      }).text('x');
 
 
-  var s2 = new SlopeGraph('#map-3 .slope2', stats.data, dims, function(d) {
-    console.log(d.key, d.value['2012'] / d.value['Population_2012']);
-    return d.value['2012'] / d.value['Population_2012'];
-  }, function(d) {
-    return d.value['2014'] / d.value['Population_2014'];
-  }, 'Destination');
-  s2.render();
+    });
 
+  // move syria to the front
+  // syria.remove();
+  // svg.append("g").node()
+  //   .appendChild(syria.node());
 
-});
+}
