@@ -7,7 +7,11 @@ module.exports = function(grunt) {
       'bower_components/d3/d3.js',
       'bower_components/topojson/topojson.js',
       'bower_components/d3-geo-projection/d3.geo.projection.js',
-      'bower_components/bluebird/js/browser/bluebird.js'
+      'bower_components/bluebird/js/browser/bluebird.js',
+      'bower_components/d3-transform/src/d3-transform.js',
+      'bower_components/underscore/underscore.js'
+
+
     ],
     src: [
       'src/js/util.js',

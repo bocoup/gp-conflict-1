@@ -17,6 +17,7 @@
     "d3": true,
     "topojson": true,
     "Util": true,
-    "Data": true
+    "Data": true,
+    "_": true
   }
 }

@@ -16,3 +16,7 @@ World Bank
 "Data Source","World Development Indicators",
 "Last Updated Date","2015-07-28",
 http://data.worldbank.org/indicator/SP.POP.TOTL
+
+Refugee camps
+Humanitarian Information Unit, US State Dept.
+https://hiu.state.gov/data/data.aspx

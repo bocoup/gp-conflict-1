@@ -1,1 +1,1 @@
-body{padding:0;margin:0}h1{margin:10px}path{fill:none;stroke:#fff;stroke-width:.5px;stroke-linejoin:round}path[name='Antarctica']{fill:none;stroke:none}line{stroke-linecap:round}
+body{padding:0;margin:0}h1{margin:10px}#map path{fill:none;stroke:#fff;stroke-width:.5px;stroke-linejoin:round}#map path[name='Antarctica']{fill:none;stroke:none}#map line{stroke-linecap:round}#map-3{padding:20px;}#map-3 div.graph{float:left;}#map-3 div.graph .axes line{stroke:#222;stroke-width:.5px}#map-3 div.graph .lines line{stroke:#f00;stroke-width:1px}

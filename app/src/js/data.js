@@ -21,7 +21,14 @@ window.Data = {
           '2011' : Util.zeroIfNan(country['2011']),
           '2012' : Util.zeroIfNan(country['2012']),
           '2013' : Util.zeroIfNan(country['2013']),
-          '2014' : Util.zeroIfNan(country['2014'])
+          '2014' : Util.zeroIfNan(country['2014']),
+          'Population': Util.zeroIfNan(country['2014_pop']),
+          'Population_2011': Util.zeroIfNan(country['2011_pop']),
+          'Population_2012': Util.zeroIfNan(country['2012_pop']),
+          'Population_2013': Util.zeroIfNan(country['2013_pop']),
+          'Population_2014': Util.zeroIfNan(country['2014_pop']),
+          'Total': Util.zeroIfNan(country['T']),
+          'Rate': Util.zeroIfNan(country['rate_avg']),
         };
 
         s['Total'] = s['2011'] + s['2012'] + s['2013'] + s['2014'];
