@@ -14,7 +14,7 @@ d3.select('#map')
 
 // create map, center on Syria
 var map = L.mapbox.map('map', 'ir0s.n8mo8g3c')
-    .setView([35.693, 33.08], 6);
+    .setView([41.77131167976407, 18.544921875], 4);
 
 // Disable drag and zoom handlers.
 // map.dragging.disable();
@@ -28,12 +28,10 @@ var map = L.mapbox.map('map', 'ir0s.n8mo8g3c')
 
 Promise.join(Data.getCountryStats(),
     Data.getCountryCentroidFeatures(),
-    Data.getMapFeatures(),
 
-  function(countryStats, countryCenters, features) {
+  function(countryStats, countryCenters) {
     var data = {
       countries: countryCenters,
-      features: features,
       countryStats: countryStats.data,
       data_min: countryStats.data_min,
       data_max: countryStats.data_max
@@ -53,28 +51,31 @@ function draw(args) {
 
   var circleScale = d3.scale.sqrt()
     .domain([args.data_min, args.data_max])
-    .range([8, 50]);
+    .range([5, 50]);
 
   // assemble layer
   args.countries.features.forEach(function(d) {
-    var r = 8;
+    var r = 5;
 
     if (typeof args.countryStats[d.properties.name] !== 'undefined') {
       r = circleScale(args.countryStats[d.properties.name][year]);
-    }
 
-    d['LatLng'] = new L.LatLng(d.geometry.coordinates[1],
+      d['LatLng'] = new L.LatLng(d.geometry.coordinates[1],
                   d.geometry.coordinates[0]);
-    d['r'] = r;
-    d['id'] = d.properties.name;
-    d['data'] = args.countryStats[d.properties.name];
+      d['r'] = r;
+      d['id'] = d.properties.name;
+      d['data'] = args.countryStats[d.properties.name];
+    }
+  });
 
+  var features = args.countries.features.filter(function(d) {
+    return (typeof d.id !== 'undefined');
   });
 
   // draw circles
   var circlesg = svg.append("g").classed("circles", true);
   var binding = circlesg.selectAll('circle')
-    .data(args.countries.features, function(d) { return d.id; });
+    .data(features, function(d) { return d.id; });
 
   binding.enter()
     .append('circle')
