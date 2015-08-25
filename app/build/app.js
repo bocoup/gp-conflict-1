@@ -187,14 +187,14 @@ $(function() {
   // Initialize the SVG layer
   map._initPathRoot();
 
-  // Disable drag and zoom handlers.
-  map.dragging.disable();
-  map.touchZoom.disable();
-  map.doubleClickZoom.disable();
-  map.scrollWheelZoom.disable();
+  // // Disable drag and zoom handlers.
+  // map.dragging.disable();
+  // map.touchZoom.disable();
+  // map.doubleClickZoom.disable();
+  // map.scrollWheelZoom.disable();
 
-  // Disable tap handler, if present.
-  if (map.tap) {map.tap.disable();}
+  // // Disable tap handler, if present.
+  // if (map.tap) {map.tap.disable();}
 
   // Pick up the SVG from the map object
   var svg = d3.select("#map .leaflet-map-pane").select("svg");
