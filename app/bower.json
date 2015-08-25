@@ -27,6 +27,7 @@
     "bluebird": "~2.9.34",
     "d3-transform": "git@github.com:trinary/d3-transform.git",
     "underscore": "~1.8.3",
-    "mapbox.js": "~2.2.1"
+    "mapbox.js": "~2.2.1",
+    "jquery": "~2.1.4"
   }
 }

@@ -10,7 +10,8 @@ module.exports = function(grunt) {
       'bower_components/bluebird/js/browser/bluebird.js',
       'bower_components/d3-transform/src/d3-transform.js',
       'bower_components/underscore/underscore.js',
-      'bower_components/mapbox.js/mapbox.uncompressed.js'
+      'bower_components/mapbox.js/mapbox.uncompressed.js',
+      'bower_components/jquery/dist/jquery.js'
     ],
     src: [
       'src/js/util.js',

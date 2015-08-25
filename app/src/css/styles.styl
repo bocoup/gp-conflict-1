@@ -43,6 +43,37 @@ h1 {
     circle {
       fill: teal;
     }
+
+    circle:hover {
+      cursor: pointer;
+    }
+  }
+
+  .callout {
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    margin: 20px;
+    margin-left: 60px;
+    background-color: white;
+    padding: 20px;
+  }
+
+  .legend {
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    bottom: 20px;
+    height: 200px;
+    margin-left: 60px;
+  }
+
+  .leaflet-popup-pane {
+    z-index: 200;
+  }
+
+  a {
+    cursor: pointer;
   }
 }
 #map-3 {

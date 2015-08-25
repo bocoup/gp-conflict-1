@@ -14,7 +14,9 @@ window.Data = {
       }
 
       var max = 0;
-      var min = 0;
+      var min = Infinity;
+      var ratemax = 0;
+      var ratemin = Infinity;
       // transform stats into a hashmap.
       stats.forEach(function(country) {
         var s = statsdata[country.Destination] = {
@@ -33,15 +35,20 @@ window.Data = {
 
         s['Total'] = s['2011'] + s['2012'] + s['2013'] + s['2014'];
 
-        // update max
+        // update max & min & ratemax & ratemin
         max = Math.max(s['2011'], s['2012'], s['2013'], s['2014'], max);
-        // max = Math.max(s[year], max);
+        min = Math.min(s['2011'], s['2012'], s['2013'], s['2014'], min);
+        ratemax = Math.max(s['Rate'], ratemax);
+        ratemin = Math.min(s['Rate'], ratemin);
+
       });
 
       def.resolve({
         data: statsdata,
         data_max: max,
-        data_min: min
+        data_min: min,
+        rate_max: ratemax,
+        rate_min: ratemin
       });
     });
 
