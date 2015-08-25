@@ -18,6 +18,12 @@ module.exports = function(grunt) {
       cwd: "bower_components/mapbox.js/images",
       src: ["*"],
       dest: "build/images"
+    },
+    screenshots: {
+      expand: true,
+      cwd: "../screenshots",
+      src: ["*"],
+      dest: "build/screenshots"
     }
   });
 
