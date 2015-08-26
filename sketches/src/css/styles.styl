@@ -1,0 +1,137 @@
+@import '../../bower_components/mapbox.js/mapbox.standalone.css';
+
+body {
+  padding: 0
+  margin: 0
+}
+
+h1 {
+  margin: 10px
+}
+
+countryStroke()
+  path {
+    fill: none;
+    stroke: #fff;
+    stroke-width: .5px;
+    stroke-linejoin: round;
+  }
+
+  line {
+    stroke-linecap: round
+  }
+
+hideAntarctica()
+  path[name='Antarctica'] {
+    fill: none;
+    stroke: none;
+  }
+
+
+#map {
+  hideAntarctica()
+  countryStroke()
+}
+
+#map-2 {
+  hideAntarctica()
+  countryStroke()
+  svg {
+    width: 49%
+    float:left
+    border: 1px solid #999;
+  }
+}
+
+#map-3 {
+  hideAntarctica()
+  countryStroke()
+  svg {
+    width: 49%
+    float:left
+    border: 1px solid #999;
+  }
+}
+
+#map-4 {
+  hideAntarctica()
+}
+
+#map-5 {
+  padding: 20px;
+
+  div.graph {
+    float: left;
+
+   .axes {
+      line {
+        stroke: #222
+        stroke-width: 0.5px
+      }
+    }
+
+    .lines {
+      line {
+        stroke: red
+        stroke-width: 1px;
+      }
+    }
+  }
+}
+
+#map-6 {
+  hideAntarctica()
+  countryStroke()
+
+  .circles {
+    circle {
+      fill: teal;
+    }
+
+    circle:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#map-7 {
+  .circles {
+    circle {
+      fill: teal;
+    }
+
+    circle:hover {
+      cursor: pointer;
+    }
+  }
+
+  .callout {
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    margin: 20px;
+    margin-left: 60px;
+    background-color: white;
+    padding: 20px;
+  }
+
+  .legend {
+    position: absolute;
+    z-index: 100;
+    width: 300px;
+    bottom: 20px;
+    height: 200px;
+    margin-left: 60px;
+  }
+
+  .leaflet-popup-pane {
+    z-index: 200;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
+
+
+
