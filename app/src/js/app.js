@@ -1,51 +1,16 @@
 // start data fetching.
 var getData = Data.getCountryStats(),
-    getMap = Data.getCountryCentroidFeatures();
+    getMap = Data.getCountryCentroidFeatures(),
+    map, mapWrapper;
 
-var popupTotalTemplate = _.template("<h3> <%= d.id %> </h3> \
-    <p> \
-      In 2014, <%= d.id %> took in <b><%= d3.format('0,')(d.data['2014']) %> \
-      </b> refugees. \
-    </p>");
-
-var popupRateTemplate = _.template("<h3> <%= d.id %> </h3> \
-    <p> \
-      The amount of refugees taken in by <%= d.id %> in 2014 constituted \
-      <b><%= d3.format('.2f')(d.data['Rate'] * 100) %>%</b> of the overall country \
-      population. \
-    </p>");
-
-L.mapbox.accessToken = 'pk.eyJ1IjoiaXIwcyIsImEiOiJzRW9ObDVJIn0.Yjg0YkF_gr1teCBLJVyeoQ';
-
-// size mode: alternative "Rate"
-var circleMode = "Total";
-var circleRange = [5,50]; //radius size
-var colors = {
-  'Total' : 'teal',
-  'Rate' : '#5C2691'
-};
+// size mode, total default
+var circleMode = Config.modes.default;
 var circleTotalScale, circleRateScale;
-var year = '2014';
 
 $(function() {
 
-  $('.callout').click(function(event) {
-    event.stopPropagation();
-  });
-
-  // initialize Base Map
-  d3.select('#map')
-    .style({
-      width: $(window).width(),
-      height: 600
-    });
-
-  // create map, center on Syria
-  var map = L.mapbox.map('map', 'ir0s.n8mo8g3c')
-      .setView([41.77131167976407, 18.544921875], 4);
-
-  // Initialize the SVG layer
-  map._initPathRoot();
+  mapWrapper = new MapWrapper();
+  map = mapWrapper.map;
 
   // // Disable drag and zoom handlers.
   // map.dragging.disable();
@@ -80,6 +45,9 @@ $(function() {
 
   function drawCircles(args) {
 
+
+
+
     var circlesg = svg.append("g")
       .classed("circles", true);
 
@@ -99,21 +67,50 @@ $(function() {
 
     binding.on('mouseover', function(d) {
       var popup;
-      if (circleMode === 'Total') {
-        popup = L.popup()
-          .setLatLng(d.LatLng)
-          .setContent(popupTotalTemplate({ d : d }));
+      if (circleMode === Config.modes.total) {
+        popup = mapWrapper.popup(d, 'total_refugees');
       } else {
-        popup = L.popup()
-          .setLatLng(d.LatLng)
-          .setContent(popupRateTemplate({ d : d }));
+        popup = mapWrapper.popup(d, 'refugee_vs_population_burden');
       }
-
-      map.openPopup(popup, d.LatLng);
     });
 
     binding.on('mouseout', function(d) {
-      map.closePopup();
+      mapWrapper.closePopups();
+    });
+
+    // add per capita switch
+    $('.callout a').click(function(event) {
+      var scale, text, attr;
+
+      // if going to total, switch back.
+      if (circleMode !== Config.modes.total) {
+        circleMode = Config.modes.total;
+        scale = circleTotalScale;
+        text = 'Per Capita &raquo;';
+        attr = Config.year;
+      } else {
+
+        // switch to rate
+        scale = circleRateScale;
+        text = 'Total &raquo;';
+        attr = 'Rate';
+        circleMode = Config.modes.rate;
+      }
+
+      // change button text
+      $(this).html(text);
+
+      // animate circle size
+      binding.transition().ease('bounce')
+        .attr('r', function(d) {
+          var r = d3.select(this).attr('r');
+          if (typeof args.countryStats[d.properties.name] !== 'undefined') {
+            r = scale(args.countryStats[d.properties.name][attr]);
+          }
+          return r;
+        }).style({
+          'fill' : Config.circles.colors[circleMode]
+        });
     });
 
     function update() {
@@ -137,19 +134,19 @@ $(function() {
     // Total refugee scale
     circleTotalScale = d3.scale.sqrt()
       .domain([args.data_min, args.data_max])
-      .range(circleRange);
+      .range(Config.circles.range);
 
     // Per capita scale
     circleRateScale = d3.scale.sqrt()
       .domain([args.rate_min, args.rate_max])
-      .range(circleRange);
+      .range(Config.circles.range);
 
     // join layer to contain centroids and data
     args.countries.features.forEach(function(d) {
       var r = 5;
 
       if (typeof args.countryStats[d.properties.name] !== 'undefined') {
-        r = circleTotalScale(args.countryStats[d.properties.name][year]);
+        r = circleTotalScale(args.countryStats[d.properties.name][Config.year]);
         d['LatLng'] = new L.LatLng(d.geometry.coordinates[1],
             d.geometry.coordinates[0]);
         d['r'] = r;
@@ -164,49 +161,7 @@ $(function() {
 
     var binding = drawCircles(args);
 
-    // add per capita switch
-    $('.callout a').click(function(event) {
-      var scale, text, attr;
 
-      // if going to total, switch back.
-      if (circleMode !== 'Total') {
-        circleMode = 'Total';
-        scale = circleTotalScale;
-        text = 'Per Capita &raquo;';
-        attr = year;
-      } else {
-
-        // switch to rate
-        scale = circleRateScale;
-        text = 'Total &raquo;';
-        attr = 'Rate';
-        circleMode = 'Rate';
-      }
-
-      // change button text
-      $(this).html(text);
-
-      // animate circle size
-      binding.transition()
-        .attr('r', function(d) {
-          var r = d3.select(this).attr('r');
-          if (typeof args.countryStats[d.properties.name] !== 'undefined') {
-            r = scale(args.countryStats[d.properties.name][attr]);
-          }
-          return r;
-        }).style({
-          'fill' : colors[circleMode]
-        });
-    });
   }
 
 });
-
-
-
-  // queue()
-  //   .defer(d3.json, "test.geojson")
-  //   .await(ready);
-  // function ready(error, data) {
-  //   L.geoJson(data).addTo(map);
-  // }

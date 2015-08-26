@@ -16,11 +16,14 @@
   "multistr": true,
   "globals": {
     "d3": true,
-    "topojson": true,
     "Util": true,
     "Data": true,
     "_": true,
     "L": true,
-    "$": true
+    "$": true,
+    "Promise": true,
+    "JST": true,
+    "Config": true,
+    "MapWrapper": true
   }
 }

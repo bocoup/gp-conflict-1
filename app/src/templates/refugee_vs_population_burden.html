@@ -1,0 +1,6 @@
+<h3> <%= d.id %> </h3>
+<p>
+  The amount of refugees taken in by <%= d.id %> in 2014 constituted
+  <b><%= d3.format('.2f')(d.data['Rate'] * 100) %>%</b> of the overall country
+  population.
+</p>

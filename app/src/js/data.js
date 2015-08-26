@@ -71,26 +71,5 @@ window.Data = {
     });
 
     return def.promise;
-  },
-
-  getMapFeatures: function() {
-    var countrydata;
-
-    var def = Promise.defer();
-
-    // load map shape file
-    d3.json('data/world_map_topojson.json', function(error, topology) {
-
-      if (error) {
-        def.reject(error);
-      }
-      // cache geodata
-      countrydata = topojson.feature(topology, topology.objects.countries)
-        .features;
-
-      def.resolve(countrydata);
-    });
-
-    return def.promise;
   }
 };

@@ -1,21 +1,25 @@
 module.exports = function(grunt) {
   // Project configuration.
 
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     deps: [
       'bower_components/d3/d3.js',
       'bower_components/topojson/topojson.js',
+      'bower_components/d3-transform/src/d3-transform.js',
       'bower_components/d3-geo-projection/d3.geo.projection.js',
       'bower_components/bluebird/js/browser/bluebird.js',
-      'bower_components/d3-transform/src/d3-transform.js',
       'bower_components/underscore/underscore.js',
       'bower_components/mapbox.js/mapbox.uncompressed.js',
       'bower_components/jquery/dist/jquery.js'
     ],
     src: [
       'src/js/util.js',
+      'src/js/map.js',
+      'tmp/templates.js',
       'src/js/data.js',
+      'src/js/config.js',
       'src/js/app.js',
     ]
   });
@@ -33,11 +37,12 @@ module.exports = function(grunt) {
 
   // build source:
   // - check source linting
+  // - build templates
   // - concatinate src files & deps files (separatly)
   // - copy data and html page
   // - build css
   grunt.registerTask('build',
-    ['jshint', 'concat', 'copy', 'stylus']);
+    ['jshint', 'jst', 'concat', 'copy', 'stylus']);
 
   // build production source
   // - same as build source, but with uglify instead of concat.
