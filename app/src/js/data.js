@@ -20,24 +20,24 @@ window.Data = {
       // transform stats into a hashmap.
       stats.forEach(function(country) {
         var s = statsdata[country.Destination] = {
-          '2011' : Util.zeroIfNan(country['2011']),
-          '2012' : Util.zeroIfNan(country['2012']),
-          '2013' : Util.zeroIfNan(country['2013']),
-          '2014' : Util.zeroIfNan(country['2014']),
+          'Refugees_2011' : Util.zeroIfNan(country['2011_ref']),
+          'Refugees_2012' : Util.zeroIfNan(country['2012_ref']),
+          'Refugees_2013' : Util.zeroIfNan(country['2013_ref']),
+          'Refugees_2014' : Util.zeroIfNan(country['2014_ref']),
           'Population': Util.zeroIfNan(country['2014_pop']),
           'Population_2011': Util.zeroIfNan(country['2011_pop']),
           'Population_2012': Util.zeroIfNan(country['2012_pop']),
           'Population_2013': Util.zeroIfNan(country['2013_pop']),
           'Population_2014': Util.zeroIfNan(country['2014_pop']),
-          'Total': Util.zeroIfNan(country['T']),
+          'Total': Util.zeroIfNan(country['total']),
           'Rate': Util.zeroIfNan(country['rate_avg']),
         };
 
-        s['Total'] = s['2011'] + s['2012'] + s['2013'] + s['2014'];
-
         // update max & min & ratemax & ratemin
-        max = Math.max(s['2011'], s['2012'], s['2013'], s['2014'], max);
-        min = Math.min(s['2011'], s['2012'], s['2013'], s['2014'], min);
+        max = Math.max(s['Refugees_2011'], s['Refugees_2012'],
+          s['Refugees_2013'], s['Refugees_2014'], max);
+        min = Math.min(s['Refugees_2011'], s['Refugees_2012'],
+          s['Refugees_2013'], s['Refugees_2014'], min);
         ratemax = Math.max(s['Rate'], ratemax);
         ratemin = Math.min(s['Rate'], ratemin);
 

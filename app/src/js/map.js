@@ -2,7 +2,8 @@
 
   // Zoom and centers for predefined regions.
   var centers = {
-    "Syria" : [[36.19109202182454, 33.585205078125], 6],
+    "Syria": [[34.74161249883172, 37.452392578125], 7],
+    "SyriaRegion" : [[36.19109202182454, 33.585205078125], 6],
     "World" : [[41.77131167976407, 18.544921875], 4],
     "Europe": [[48.31242790407178, 4.06494140625], 5],
     "US": [[54.521081495443596, -126.2548828125], 4]
@@ -23,6 +24,7 @@
       });
 
     this.map = L.mapbox.map('map', 'ir0s.n8mo8g3c'); // load map
+
     this.map.setView.apply(this.map, centers.World); // initial center
     this.map._initPathRoot(); // init svg
 

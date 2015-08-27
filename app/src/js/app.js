@@ -1,7 +1,7 @@
 // start data fetching.
 var getData = Data.getCountryStats(),
     getMap = Data.getCountryCentroidFeatures(),
-    map, mapWrapper;
+    map, mapWrapper, panels;
 
 // size mode, total default
 var circleMode = Config.modes.default;
@@ -44,9 +44,6 @@ $(function() {
   }
 
   function drawCircles(args) {
-
-
-
 
     var circlesg = svg.append("g")
       .classed("circles", true);
@@ -159,9 +156,10 @@ $(function() {
       return (typeof d.id !== 'undefined');
     });
 
+    panels = new PanelManager(mapWrapper, args.countryStats);
+    panels.goTo(0);
+
     var binding = drawCircles(args);
-
-
   }
 
 });

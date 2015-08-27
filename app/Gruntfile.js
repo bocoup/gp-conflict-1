@@ -16,10 +16,11 @@ module.exports = function(grunt) {
     ],
     src: [
       'src/js/util.js',
-      'src/js/map.js',
       'tmp/templates.js',
+      'src/js/map.js',
       'src/js/data.js',
       'src/js/config.js',
+      'src/js/panels.js',
       'src/js/app.js',
     ]
   });

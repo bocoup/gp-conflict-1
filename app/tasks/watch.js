@@ -23,6 +23,10 @@ module.exports = function(grunt) {
     html: {
       files: ['src/pages/*.html'],
       tasks: ['copy:html']
+    },
+    templates: {
+      files: ['src/templates/**/*.html'],
+      tasks: ['jst', 'concat:js']
     }
   });
 

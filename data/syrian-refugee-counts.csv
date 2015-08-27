@@ -22,30 +22,30 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1988,Greece,"Syrian Arab Rep.",60,,,,,,,60
 1988,Italy,"Syrian Arab Rep.",27,,,,,,,27
 1988,Lebanon,"Syrian Arab Rep.",520,,,,,,,520
-1988,"United States of America","Syrian Arab Rep.",252,,,,,,,252
+1988,"United States","Syrian Arab Rep.",252,,,,,,,252
 1989,Denmark,"Syrian Arab Rep.",11,,,,,,,11
 1989,"United Kingdom","Syrian Arab Rep.",13,,,,,,,13
 1989,Greece,"Syrian Arab Rep.",100,,,,,,,100
 1989,Italy,"Syrian Arab Rep.",34,,,,,,,34
-1989,"United States of America","Syrian Arab Rep.",239,,,,,,,239
+1989,"United States","Syrian Arab Rep.",239,,,,,,,239
 1990,Denmark,"Syrian Arab Rep.",46,,,,,,,46
 1990,"United Kingdom","Syrian Arab Rep.",17,,,,,,,17
 1990,Italy,"Syrian Arab Rep.",32,,,,,,,32
 1990,Sweden,"Syrian Arab Rep.",1796,,,,,,,1796
-1990,"United States of America","Syrian Arab Rep.",257,,,,,,,257
+1990,"United States","Syrian Arab Rep.",257,,,,,,,257
 1991,Denmark,"Syrian Arab Rep.",71,,,,,,,71
 1991,Spain,"Syrian Arab Rep.",34,,,,,,,34
 1991,"United Kingdom","Syrian Arab Rep.",16,,,,,,,16
 1991,Italy,"Syrian Arab Rep.",32,,,,,,,32
 1991,Sweden,"Syrian Arab Rep.",2679,,,,,,,2679
-1991,"United States of America","Syrian Arab Rep.",205,,,,,,,205
+1991,"United States","Syrian Arab Rep.",205,,,,,,,205
 1992,Denmark,"Syrian Arab Rep.",108,,,,,,,108
 1992,Spain,"Syrian Arab Rep.",31,,,,,,,31
 1992,"United Kingdom","Syrian Arab Rep.",9,,,,,,,9
 1992,Italy,"Syrian Arab Rep.",36,,,,,,,36
 1992,Netherlands,"Syrian Arab Rep.",913,,,,,,,913
 1992,Sweden,"Syrian Arab Rep.",3157,,,,,,,3157
-1992,"United States of America","Syrian Arab Rep.",154,,,,,,,154
+1992,"United States","Syrian Arab Rep.",154,,,,,,,154
 1993,"United Arab Emirates","Syrian Arab Rep.",21,,,,,,,21
 1993,"Burkina Faso","Syrian Arab Rep.",5,,,,,,,5
 1993,Bulgaria,"Syrian Arab Rep.",1,,,,,,,1
@@ -61,7 +61,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1993,Peru,"Syrian Arab Rep.",3,,,,,,,3
 1993,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",3,,,,,,,3
 1993,Sweden,"Syrian Arab Rep.",3216,,,,,,,3216
-1993,"United States of America","Syrian Arab Rep.",757,,,,,,,757
+1993,"United States","Syrian Arab Rep.",757,,,,,,,757
 1993,"Venezuela (Bolivarian Republic of)","Syrian Arab Rep.",4,,,,,,,4
 1994,"United Arab Emirates","Syrian Arab Rep.",16,,,,,,,16
 1994,Belgium,"Syrian Arab Rep.",,,1,,,,,1
@@ -82,7 +82,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1994,Peru,"Syrian Arab Rep.",3,,,,,,,3
 1994,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",2,,1,,,,,3
 1994,Sweden,"Syrian Arab Rep.",3384,,,,,,,3384
-1994,"United States of America","Syrian Arab Rep.",1760,,,,,,,1760
+1994,"United States","Syrian Arab Rep.",1760,,,,,,,1760
 1994,"Venezuela (Bolivarian Republic of)","Syrian Arab Rep.",4,,,,,,,4
 1995,Albania,"Syrian Arab Rep.",3,,,,,,,3
 1995,"United Arab Emirates","Syrian Arab Rep.",13,,,,,,,13
@@ -105,7 +105,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1995,Sweden,"Syrian Arab Rep.",3364,,,,,,,3364
 1995,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 1995,Turkey,"Syrian Arab Rep.",43,,,,,,,43
-1995,"United States of America","Syrian Arab Rep.",2394,,,,,,,2394
+1995,"United States","Syrian Arab Rep.",2394,,,,,,,2394
 1996,Albania,"Syrian Arab Rep.",3,,,,,,,3
 1996,"United Arab Emirates","Syrian Arab Rep.",11,,1,,,,,12
 1996,Australia,"Syrian Arab Rep.",18,,,,,,,18
@@ -128,7 +128,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1996,Sweden,"Syrian Arab Rep.",3240,,,,,,,3240
 1996,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 1996,Turkey,"Syrian Arab Rep.",33,,,,,,,33
-1996,"United States of America","Syrian Arab Rep.",2703,,,,,,,2703
+1996,"United States","Syrian Arab Rep.",2703,,,,,,,2703
 1997,Albania,"Syrian Arab Rep.",3,,,,,,,3
 1997,"United Arab Emirates","Syrian Arab Rep.",10,,,,,,,10
 1997,Australia,"Syrian Arab Rep.",26,,,,,,,26
@@ -155,7 +155,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1997,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",1,,,,,,,1
 1997,Sweden,"Syrian Arab Rep.",3165,,,,,,,3165
 1997,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
-1997,"United States of America","Syrian Arab Rep.",2737,,,,,,,2737
+1997,"United States","Syrian Arab Rep.",2737,,,,,,,2737
 1998,Albania,"Syrian Arab Rep.",3,,,,,,,3
 1998,"United Arab Emirates","Syrian Arab Rep.",4,,,,,,,4
 1998,Australia,"Syrian Arab Rep.",34,,,,,,,34
@@ -189,7 +189,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1998,Sweden,"Syrian Arab Rep.",3014,,,,,,,3014
 1998,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 1998,Ukraine,"Syrian Arab Rep.",23,,,,,,,23
-1998,"United States of America","Syrian Arab Rep.",2165,,,,,,,2165
+1998,"United States","Syrian Arab Rep.",2165,,,,,,,2165
 1999,"United Arab Emirates","Syrian Arab Rep.",17,,,,,,,17
 1999,Australia,"Syrian Arab Rep.",39,,,,,,,39
 1999,Austria,"Syrian Arab Rep.",85,,,,,,,85
@@ -222,7 +222,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 1999,Sweden,"Syrian Arab Rep.",2419,,,,,,,2419
 1999,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 1999,Ukraine,"Syrian Arab Rep.",29,,,,,,,29
-1999,"United States of America","Syrian Arab Rep.",1178,,,,,,,1178
+1999,"United States","Syrian Arab Rep.",1178,,,,,,,1178
 2000,"United Arab Emirates","Syrian Arab Rep.",43,49,,,,,,92
 2000,Australia,"Syrian Arab Rep.",61,61,,,,,,122
 2000,Austria,"Syrian Arab Rep.",85,,,,,,,85
@@ -259,7 +259,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2000,Jordan,"Syrian Arab Rep.",2,110,,,,,,112
 2000,Kazakhstan,"Syrian Arab Rep.",3,,,,,,,3
 2000,Morocco,"Syrian Arab Rep.",9,,,,,,,9
-2000,"Rep. of Moldova","Syrian Arab Rep.",,2,,,,,,2
+2000,"Moldova","Syrian Arab Rep.",,2,,,,,,2
 2000,Malta,"Syrian Arab Rep.",1,,,,,,,1
 2000,Netherlands,"Syrian Arab Rep.",1618,1829,,,,,,3447
 2000,Norway,"Syrian Arab Rep.",113,,,,,,,113
@@ -277,7 +277,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2000,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2000,Turkey,"Syrian Arab Rep.",1,2,,,,,,3
 2000,Ukraine,"Syrian Arab Rep.",36,3,,,,,,39
-2000,"United States of America","Syrian Arab Rep.",560,168,,,,,,728
+2000,"United States","Syrian Arab Rep.",560,168,,,,,,728
 2000,Yemen,"Syrian Arab Rep.",10,1,,,,,,11
 2001,"United Arab Emirates","Syrian Arab Rep.",39,52,,,,,,91
 2001,Australia,"Syrian Arab Rep.",73,48,,,,,,121
@@ -286,7 +286,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2001,Belgium,"Syrian Arab Rep.",47,,,,,,,47
 2001,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2001,Bulgaria,"Syrian Arab Rep.",58,,,,,,,58
-2001,"Bosnia and Herzegovina","Syrian Arab Rep.",,2,,,,,,2
+2001,"Bosnia and Herz.","Syrian Arab Rep.",,2,,,,,,2
 2001,Belarus,"Syrian Arab Rep.",,3,,,,,,3
 2001,Brazil,"Syrian Arab Rep.",5,,,,,,,5
 2001,Canada,"Syrian Arab Rep.",427,134,,,,,,561
@@ -314,7 +314,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2001,Jordan,"Syrian Arab Rep.",2,160,,,,,,162
 2001,Kazakhstan,"Syrian Arab Rep.",1,,,,,,,1
 2001,Morocco,"Syrian Arab Rep.",9,,,,,,,9
-2001,"Rep. of Moldova","Syrian Arab Rep.",,1,,,,,,1
+2001,"Moldova","Syrian Arab Rep.",,1,,,,,,1
 2001,Malta,"Syrian Arab Rep.",1,1,,,,,,2
 2001,Netherlands,"Syrian Arab Rep.",1518,1764,,,,,,3282
 2001,Norway,"Syrian Arab Rep.",105,,,,,,,105
@@ -333,7 +333,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2001,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2001,Turkey,"Syrian Arab Rep.",6,2,,,,,,8
 2001,Ukraine,"Syrian Arab Rep.",44,8,,,,,,52
-2001,"United States of America","Syrian Arab Rep.",297,182,,,,,,479
+2001,"United States","Syrian Arab Rep.",297,182,,,,,,479
 2001,Uzbekistan,"Syrian Arab Rep.",,1,,,,,,1
 2001,Yemen,"Syrian Arab Rep.",13,,,,,,,13
 2001,"South Africa","Syrian Arab Rep.",,1,,,,,,1
@@ -344,7 +344,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2002,Belgium,"Syrian Arab Rep.",31,,,,,,,31
 2002,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2002,Bulgaria,"Syrian Arab Rep.",61,,,,,,,61
-2002,"Bosnia and Herzegovina","Syrian Arab Rep.",,1,,,,,,1
+2002,"Bosnia and Herz.","Syrian Arab Rep.",,1,,,,,,1
 2002,Belarus,"Syrian Arab Rep.",,2,,,,,,2
 2002,Brazil,"Syrian Arab Rep.",5,1,,,,,,6
 2002,Canada,"Syrian Arab Rep.",432,142,,,,,,574
@@ -370,7 +370,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2002,Jordan,"Syrian Arab Rep.",5,65,1,,,,,71
 2002,Kyrgyzstan,"Syrian Arab Rep.",,1,,,,,,1
 2002,Morocco,"Syrian Arab Rep.",9,,,,,,,9
-2002,"Rep. of Moldova","Syrian Arab Rep.",,3,,,,,,3
+2002,"Moldova","Syrian Arab Rep.",,3,,,,,,3
 2002,Mexico,"Syrian Arab Rep.",,1,,,,,,1
 2002,Malta,"Syrian Arab Rep.",4,,,,,,,4
 2002,Netherlands,"Syrian Arab Rep.",1454,1256,,,,,,2710
@@ -388,7 +388,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2002,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2002,Turkey,"Syrian Arab Rep.",6,5,,,,,,11
 2002,Ukraine,"Syrian Arab Rep.",45,,,,,,,45
-2002,"United States of America","Syrian Arab Rep.",291,190,,,,,,481
+2002,"United States","Syrian Arab Rep.",291,190,,,,,,481
 2002,Uzbekistan,"Syrian Arab Rep.",,2,,,,,,2
 2002,Yemen,"Syrian Arab Rep.",13,1,,,,,,14
 2003,"United Arab Emirates","Syrian Arab Rep.",18,27,,,,,,45
@@ -399,7 +399,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2003,Belgium,"Syrian Arab Rep.",19,170,,,,,,189
 2003,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2003,Bulgaria,"Syrian Arab Rep.",65,,,,,,,65
-2003,"Bosnia and Herzegovina","Syrian Arab Rep.",1,1,,,,,,2
+2003,"Bosnia and Herz.","Syrian Arab Rep.",1,1,,,,,,2
 2003,Belarus,"Syrian Arab Rep.",,2,,,,,,2
 2003,Brazil,"Syrian Arab Rep.",5,2,,,,,,7
 2003,Canada,"Syrian Arab Rep.",424,162,,,,,,586
@@ -426,7 +426,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2003,Jordan,"Syrian Arab Rep.",28,68,,,,,,96
 2003,Kyrgyzstan,"Syrian Arab Rep.",,18,,,,,,18
 2003,Morocco,"Syrian Arab Rep.",9,1,,,,,,10
-2003,"Rep. of Moldova","Syrian Arab Rep.",,12,,,,,,12
+2003,"Moldova","Syrian Arab Rep.",,12,,,,,,12
 2003,Mexico,"Syrian Arab Rep.",,1,,,,,,1
 2003,Malta,"Syrian Arab Rep.",7,,,,,,,7
 2003,Malaysia,"Syrian Arab Rep.",,1,,,,,,1
@@ -446,7 +446,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2003,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2003,Turkey,"Syrian Arab Rep.",3,5,,,,,,8
 2003,Ukraine,"Syrian Arab Rep.",42,24,,,,,,66
-2003,"United States of America","Syrian Arab Rep.",182,211,,,,,,393
+2003,"United States","Syrian Arab Rep.",182,211,,,,,,393
 2003,Uzbekistan,"Syrian Arab Rep.",,1,,,,,,1
 2003,Yemen,"Syrian Arab Rep.",14,67,,,,,,81
 2004,"United Arab Emirates","Syrian Arab Rep.",34,25,,,,,,59
@@ -456,7 +456,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2004,Belgium,"Syrian Arab Rep.",80,253,,,,,,333
 2004,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2004,Bulgaria,"Syrian Arab Rep.",72,2,,,,,,74
-2004,"Bosnia and Herzegovina","Syrian Arab Rep.",1,1,,,,,,2
+2004,"Bosnia and Herz.","Syrian Arab Rep.",1,1,,,,,,2
 2004,Belarus,"Syrian Arab Rep.",,3,,,,,,3
 2004,Brazil,"Syrian Arab Rep.",5,1,,,,,,6
 2004,Canada,"Syrian Arab Rep.",459,95,,,,,,554
@@ -485,7 +485,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2004,Kyrgyzstan,"Syrian Arab Rep.",6,2,,,,,,8
 2004,Kuwait,"Syrian Arab Rep.",,4,,,,,,4
 2004,Morocco,"Syrian Arab Rep.",3,1,,,,,,4
-2004,"Rep. of Moldova","Syrian Arab Rep.",,17,,,,,,17
+2004,"Moldova","Syrian Arab Rep.",,17,,,,,,17
 2004,Malta,"Syrian Arab Rep.",10,2,,,,,,12
 2004,Malaysia,"Syrian Arab Rep.",,2,,,,,,2
 2004,Netherlands,"Syrian Arab Rep.",1588,549,,,,,,2137
@@ -505,7 +505,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2004,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2004,Turkey,"Syrian Arab Rep.",,14,,,,,,14
 2004,Ukraine,"Syrian Arab Rep.",40,43,,,,,,83
-2004,"United States of America","Syrian Arab Rep.",197,207,,,,,,404
+2004,"United States","Syrian Arab Rep.",197,207,,,,,,404
 2004,Uzbekistan,"Syrian Arab Rep.",,8,,,,,,8
 2004,Yemen,"Syrian Arab Rep.",25,43,,,,,,68
 2005,"United Arab Emirates","Syrian Arab Rep.",34,55,,,,,,89
@@ -515,7 +515,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2005,Belgium,"Syrian Arab Rep.",115,409,,,,,,524
 2005,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2005,Bulgaria,"Syrian Arab Rep.",78,,,,,,,78
-2005,"Bosnia and Herzegovina","Syrian Arab Rep.",1,,,,,,,1
+2005,"Bosnia and Herz.","Syrian Arab Rep.",1,,,,,,,1
 2005,Belarus,"Syrian Arab Rep.",,1,,,,,,1
 2005,Brazil,"Syrian Arab Rep.",5,,,,,,,5
 2005,Canada,"Syrian Arab Rep.",397,64,,,,,,461
@@ -544,7 +544,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2005,Kyrgyzstan,"Syrian Arab Rep.",,16,,,,,,16
 2005,Kuwait,"Syrian Arab Rep.",,7,,,,,,7
 2005,Morocco,"Syrian Arab Rep.",3,,,,,,,3
-2005,"Rep. of Moldova","Syrian Arab Rep.",8,17,,,,,,25
+2005,"Moldova","Syrian Arab Rep.",8,17,,,,,,25
 2005,Malta,"Syrian Arab Rep.",8,6,,,,,,14
 2005,Malaysia,"Syrian Arab Rep.",,1,,,,,,1
 2005,Netherlands,"Syrian Arab Rep.",1674,336,,,,,,2010
@@ -565,7 +565,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2005,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2005,Turkey,"Syrian Arab Rep.",12,7,,,,,,19
 2005,Ukraine,"Syrian Arab Rep.",39,41,,,,,,80
-2005,"United States of America","Syrian Arab Rep.",150,173,,,,,,323
+2005,"United States","Syrian Arab Rep.",150,173,,,,,,323
 2005,Uzbekistan,"Syrian Arab Rep.",,8,,,,,,8
 2005,Yemen,"Syrian Arab Rep.",25,33,,,,,,58
 2006,"United Arab Emirates","Syrian Arab Rep.",71,10,,,,,,81
@@ -576,7 +576,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2006,Belgium,"Syrian Arab Rep.",100,153,,,,,,253
 2006,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2006,Bulgaria,"Syrian Arab Rep.",79,,,,,,,79
-2006,"Bosnia and Herzegovina","Syrian Arab Rep.",1,,,,,,,1
+2006,"Bosnia and Herz.","Syrian Arab Rep.",1,,,,,,,1
 2006,Brazil,"Syrian Arab Rep.",5,1,,,,,,6
 2006,Canada,"Syrian Arab Rep.",415,41,,,,,,456
 2006,Switzerland,"Syrian Arab Rep.",388,117,,,,,,505
@@ -597,7 +597,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2006,Indonesia,"Syrian Arab Rep.",1,,,,,,,1
 2006,India,"Syrian Arab Rep.",,6,,,,,,6
 2006,Ireland,"Syrian Arab Rep.",29,12,,,,,,41
-2006,"Iran (Islamic Rep. of)","Syrian Arab Rep.",,1,,,,,,1
+2006,"Iran","Syrian Arab Rep.",,1,,,,,,1
 2006,Iraq,"Syrian Arab Rep.",663,911,3,,,,,1577
 2006,Iceland,"Syrian Arab Rep.",1,,,,,,,1
 2006,Israel,"Syrian Arab Rep.",2,2,,,,,,4
@@ -609,7 +609,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2006,Libya,"Syrian Arab Rep.",,8,,,,,,8
 2006,Lithuania,"Syrian Arab Rep.",,1,,,,,,1
 2006,Morocco,"Syrian Arab Rep.",2,,,,,,,2
-2006,"Rep. of Moldova","Syrian Arab Rep.",17,2,,,,,,19
+2006,"Moldova","Syrian Arab Rep.",17,2,,,,,,19
 2006,Mexico,"Syrian Arab Rep.",,1,,,,,,1
 2006,Malta,"Syrian Arab Rep.",11,,,,,,,11
 2006,Malaysia,"Syrian Arab Rep.",,1,,,,,,1
@@ -630,7 +630,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2006,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2006,Turkey,"Syrian Arab Rep.",2,5,,,,,,7
 2006,Ukraine,"Syrian Arab Rep.",37,34,,,,,,71
-2006,"United States of America","Syrian Arab Rep.",423,162,,,,,,585
+2006,"United States","Syrian Arab Rep.",423,162,,,,,,585
 2006,Yemen,"Syrian Arab Rep.",25,38,,,,,,63
 2007,"United Arab Emirates","Syrian Arab Rep.",30,18,,,,,,48
 2007,Armenia,"Syrian Arab Rep.",,2,,,,,,2
@@ -640,7 +640,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2007,Belgium,"Syrian Arab Rep.",114,0,,,,,,114
 2007,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2007,Bulgaria,"Syrian Arab Rep.",85,0,,,,,,85
-2007,"Bosnia and Herzegovina","Syrian Arab Rep.",1,1,,,,,,2
+2007,"Bosnia and Herz.","Syrian Arab Rep.",1,1,,,,,,2
 2007,Belarus,"Syrian Arab Rep.",,0,,,,,,
 2007,Brazil,"Syrian Arab Rep.",5,1,,,,,,6
 2007,Canada,"Syrian Arab Rep.",624,88,,,,,,712
@@ -661,7 +661,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2007,Indonesia,"Syrian Arab Rep.",1,,,,,,,1
 2007,India,"Syrian Arab Rep.",4,2,,,,,,6
 2007,Ireland,"Syrian Arab Rep.",34,13,,,,,,47
-2007,"Iran (Islamic Rep. of)","Syrian Arab Rep.",,0,,,,,,
+2007,"Iran","Syrian Arab Rep.",,0,,,,,,
 2007,Iraq,"Syrian Arab Rep.",590,976,21,,,,,1587
 2007,Iceland,"Syrian Arab Rep.",1,1,,,,,,2
 2007,Israel,"Syrian Arab Rep.",2,2,,,,,,4
@@ -673,7 +673,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2007,Libya,"Syrian Arab Rep.",2,9,,,,,,11
 2007,Lithuania,"Syrian Arab Rep.",3,0,,,,,,3
 2007,Morocco,"Syrian Arab Rep.",2,,,,,,,2
-2007,"Rep. of Moldova","Syrian Arab Rep.",11,3,3,,,,,17
+2007,"Moldova","Syrian Arab Rep.",11,3,3,,,,,17
 2007,Malta,"Syrian Arab Rep.",11,0,,,,,,11
 2007,Malaysia,"Syrian Arab Rep.",3,1,,,,,,4
 2007,Nigeria,"Syrian Arab Rep.",,0,,,,,,
@@ -685,7 +685,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2007,Poland,"Syrian Arab Rep.",8,4,,,,,,12
 2007,Qatar,"Syrian Arab Rep.",,2,,,,,,2
 2007,Romania,"Syrian Arab Rep.",29,3,,,,,,32
-2007,"Russian Federation","Syrian Arab Rep.",1,,,,,,,1
+2007,"Russia","Syrian Arab Rep.",1,,,,,,,1
 2007,"Saudi Arabia","Syrian Arab Rep.",5,10,,,,,,15
 2007,Slovakia,"Syrian Arab Rep.",13,1,,,,,,14
 2007,Sweden,"Syrian Arab Rep.",1081,544,,,,,,1625
@@ -694,7 +694,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2007,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2007,Turkey,"Syrian Arab Rep.",5,19,,,,,,24
 2007,Ukraine,"Syrian Arab Rep.",36,29,,,,,,65
-2007,"United States of America","Syrian Arab Rep.",344,78,,,,,,422
+2007,"United States","Syrian Arab Rep.",344,78,,,,,,422
 2007,Uzbekistan,"Syrian Arab Rep.",1,,,,,,,1
 2007,Yemen,"Syrian Arab Rep.",32,41,,,,,,73
 2008,"United Arab Emirates","Syrian Arab Rep.",21,22,,,,,,43
@@ -704,7 +704,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2008,Belgium,"Syrian Arab Rep.",152,0,,,,,,152
 2008,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2008,Bulgaria,"Syrian Arab Rep.",86,4,,,,,,90
-2008,"Bosnia and Herzegovina","Syrian Arab Rep.",1,1,,,,,,2
+2008,"Bosnia and Herz.","Syrian Arab Rep.",1,1,,,,,,2
 2008,Brazil,"Syrian Arab Rep.",5,1,,,,,,6
 2008,Canada,"Syrian Arab Rep.",603,133,,,,,,736
 2008,Switzerland,"Syrian Arab Rep.",626,575,,,,,,1201
@@ -735,7 +735,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2008,Libya,"Syrian Arab Rep.",,12,,,,,,12
 2008,Lithuania,"Syrian Arab Rep.",3,0,,,,,,3
 2008,Latvia,"Syrian Arab Rep.",,3,,,,,,3
-2008,"Rep. of Moldova","Syrian Arab Rep.",12,2,,,,,,14
+2008,"Moldova","Syrian Arab Rep.",12,2,,,,,,14
 2008,Malta,"Syrian Arab Rep.",11,0,,,,,,11
 2008,Malaysia,"Syrian Arab Rep.",,0,,,,,,
 2008,Netherlands,"Syrian Arab Rep.",1326,0,,,,,,1326
@@ -747,7 +747,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2008,Poland,"Syrian Arab Rep.",8,4,,,,,,12
 2008,Qatar,"Syrian Arab Rep.",7,0,,,,,,7
 2008,Romania,"Syrian Arab Rep.",25,6,,,,,,31
-2008,"Russian Federation","Syrian Arab Rep.",2,4,,,,,,6
+2008,"Russia","Syrian Arab Rep.",2,4,,,,,,6
 2008,"Saudi Arabia","Syrian Arab Rep.",14,0,,,,,,14
 2008,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",,0,,,,,,
 2008,Slovakia,"Syrian Arab Rep.",14,0,,,,,,14
@@ -757,7 +757,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2008,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2008,Turkey,"Syrian Arab Rep.",12,21,,,,,,33
 2008,Ukraine,"Syrian Arab Rep.",39,47,,,,,,86
-2008,"United States of America","Syrian Arab Rep.",320,72,,,,,,392
+2008,"United States","Syrian Arab Rep.",320,72,,,,,,392
 2008,Uzbekistan,"Syrian Arab Rep.",1,,,,,,,1
 2008,Yemen,"Syrian Arab Rep.",32,44,,,,,,76
 2009,"United Arab Emirates","Syrian Arab Rep.",21,25,,,,,,46
@@ -767,7 +767,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2009,Belgium,"Syrian Arab Rep.",177,0,,,,,,177
 2009,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2009,Bulgaria,"Syrian Arab Rep.",90,10,,,,,,100
-2009,"Bosnia and Herzegovina","Syrian Arab Rep.",1,2,,,,,,3
+2009,"Bosnia and Herz.","Syrian Arab Rep.",1,2,,,,,,3
 2009,Belarus,"Syrian Arab Rep.",,0,,,,,,
 2009,Brazil,"Syrian Arab Rep.",5,,,,,,,5
 2009,Canada,"Syrian Arab Rep.",577,183,,,,,,760
@@ -789,7 +789,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2009,Indonesia,"Syrian Arab Rep.",,3,,,,,,3
 2009,India,"Syrian Arab Rep.",,0,,,,,,
 2009,Ireland,"Syrian Arab Rep.",34,6,,,,,,40
-2009,"Iran (Islamic Rep. of)","Syrian Arab Rep.",,1,,,,,,1
+2009,"Iran","Syrian Arab Rep.",,1,,,,,,1
 2009,Iraq,"Syrian Arab Rep.",757,127,,,,,,884
 2009,Iceland,"Syrian Arab Rep.",1,0,,,,,,1
 2009,Israel,"Syrian Arab Rep.",,0,,,,,,
@@ -804,7 +804,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2009,Luxembourg,"Syrian Arab Rep.",,0,,,,,,
 2009,Latvia,"Syrian Arab Rep.",,0,,,,,,
 2009,"Macao SAR, China","Syrian Arab Rep.",,4,,,,,,4
-2009,"Rep. of Moldova","Syrian Arab Rep.",10,2,,,,,,12
+2009,"Moldova","Syrian Arab Rep.",10,2,,,,,,12
 2009,Malta,"Syrian Arab Rep.",18,7,,,,,,25
 2009,Malaysia,"Syrian Arab Rep.",,1,,,,,,1
 2009,Netherlands,"Syrian Arab Rep.",1254,98,,,,,,1352
@@ -816,7 +816,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2009,Poland,"Syrian Arab Rep.",8,3,,,,,,11
 2009,Qatar,"Syrian Arab Rep.",7,,,,,,,7
 2009,Romania,"Syrian Arab Rep.",19,11,,,,,,30
-2009,"Russian Federation","Syrian Arab Rep.",4,3,,,,,,7
+2009,"Russia","Syrian Arab Rep.",4,3,,,,,,7
 2009,"Saudi Arabia","Syrian Arab Rep.",14,6,,,,,,20
 2009,Slovakia,"Syrian Arab Rep.",20,0,,,,,,20
 2009,Sweden,"Syrian Arab Rep.",1118,594,,,,,,1712
@@ -825,7 +825,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2009,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2009,Turkey,"Syrian Arab Rep.",8,56,,,,,,64
 2009,Ukraine,"Syrian Arab Rep.",42,54,,,,,,96
-2009,"United States of America","Syrian Arab Rep.",341,67,,,,,,408
+2009,"United States","Syrian Arab Rep.",341,67,,,,,,408
 2009,Yemen,"Syrian Arab Rep.",40,38,,,,,,78
 2010,"United Arab Emirates","Syrian Arab Rep.",34,9,,,,,,43
 2010,Armenia,"Syrian Arab Rep.",,0,,,,,,
@@ -834,8 +834,8 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2010,Belgium,"Syrian Arab Rep.",229,0,,,,,,229
 2010,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2010,Bulgaria,"Syrian Arab Rep.",95,30,,,,,,125
-2010,"Bosnia and Herzegovina","Syrian Arab Rep.",1,2,,,,,,3
-2010,"Bolivia (Plurinational State of)","Syrian Arab Rep.",,2,,,,,,2
+2010,"Bosnia and Herz.","Syrian Arab Rep.",1,2,,,,,,3
+2010,"Bolivia","Syrian Arab Rep.",,2,,,,,,2
 2010,Brazil,"Syrian Arab Rep.",5,0,,,,,,5
 2010,Canada,"Syrian Arab Rep.",545,221,,,,,,766
 2010,Switzerland,"Syrian Arab Rep.",694,859,,,,,,1553
@@ -856,7 +856,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2010,Hungary,"Syrian Arab Rep.",39,8,,,,,,47
 2010,Indonesia,"Syrian Arab Rep.",,0,,,,,,
 2010,Ireland,"Syrian Arab Rep.",34,10,,,,,,44
-2010,"Iran (Islamic Rep. of)","Syrian Arab Rep.",,1,,,,,,1
+2010,"Iran","Syrian Arab Rep.",,1,,,,,,1
 2010,Iraq,"Syrian Arab Rep.",254,968,,,,,,1222
 2010,Iceland,"Syrian Arab Rep.",1,2,,,,,,3
 2010,Italy,"Syrian Arab Rep.",211,29,,,,,,240
@@ -868,8 +868,8 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2010,Lithuania,"Syrian Arab Rep.",3,,,,,,,3
 2010,Luxembourg,"Syrian Arab Rep.",,15,,,,,,15
 2010,"Macao SAR, China","Syrian Arab Rep.",,4,,,,,,4
-2010,"Rep. of Moldova","Syrian Arab Rep.",10,4,,,,,,14
-2010,"The former Yugoslav Republic of Macedonia","Syrian Arab Rep.",,1,,,,,,1
+2010,"Moldova","Syrian Arab Rep.",10,4,,,,,,14
+2010,"Macedonia","Syrian Arab Rep.",,1,,,,,,1
 2010,Malta,"Syrian Arab Rep.",33,3,,,,,,36
 2010,Mauritania,"Syrian Arab Rep.",,0,,,,,,
 2010,Malaysia,"Syrian Arab Rep.",,5,,,,,,5
@@ -881,7 +881,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2010,Poland,"Syrian Arab Rep.",8,8,,,,,,16
 2010,Qatar,"Syrian Arab Rep.",8,,,,,,,8
 2010,Romania,"Syrian Arab Rep.",21,13,,,,,,34
-2010,"Russian Federation","Syrian Arab Rep.",5,3,,,,,,8
+2010,"Russia","Syrian Arab Rep.",5,3,,,,,,8
 2010,"Saudi Arabia","Syrian Arab Rep.",14,7,,,,,,21
 2010,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",,0,,,,,,
 2010,Slovakia,"Syrian Arab Rep.",22,0,,,,,,22
@@ -893,7 +893,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2010,Tunisia,"Syrian Arab Rep.",5,,,,,,,5
 2010,Turkey,"Syrian Arab Rep.",9,65,,,,,,74
 2010,Ukraine,"Syrian Arab Rep.",42,96,,,,,,138
-2010,"United States of America","Syrian Arab Rep.",312,10,,,,,,322
+2010,"United States","Syrian Arab Rep.",312,10,,,,,,322
 2010,Yemen,"Syrian Arab Rep.",52,34,,,,,,86
 2011,"United Arab Emirates","Syrian Arab Rep.",37,6,,,,,,43
 2011,Armenia,"Syrian Arab Rep.",6,2,,,,,,8
@@ -904,7 +904,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2011,Benin,"Syrian Arab Rep.",1,,,,,,,1
 2011,Bulgaria,"Syrian Arab Rep.",98,70,,,,,,168
 2011,Bahrain,"Syrian Arab Rep.",,3,,,,,,3
-2011,"Bosnia and Herzegovina","Syrian Arab Rep.",1,2,,,,,,3
+2011,"Bosnia and Herz.","Syrian Arab Rep.",1,2,,,,,,3
 2011,Brazil,"Syrian Arab Rep.",6,13,,,,,,19
 2011,Canada,"Syrian Arab Rep.",547,251,,,,,,798
 2011,Switzerland,"Syrian Arab Rep.",1074,1066,,,,,,2140
@@ -928,7 +928,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2011,Indonesia,"Syrian Arab Rep.",,7,,,,,,7
 2011,India,"Syrian Arab Rep.",,1,,,,,,1
 2011,Ireland,"Syrian Arab Rep.",27,18,,,,,,45
-2011,"Iran (Islamic Rep. of)","Syrian Arab Rep.",,0,,,,,,
+2011,"Iran","Syrian Arab Rep.",,0,,,,,,
 2011,Iraq,"Syrian Arab Rep.",323,1391,,,,,,1714
 2011,Iceland,"Syrian Arab Rep.",1,0,,,,,,1
 2011,Israel,"Syrian Arab Rep.",,0,,,,,,
@@ -937,7 +937,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2011,Japan,"Syrian Arab Rep.",,0,,,,,,
 2011,Kazakhstan,"Syrian Arab Rep.",,2,,,,,,2
 2011,Kyrgyzstan,"Syrian Arab Rep.",9,11,,,,,,20
-2011,"Rep. of Korea","Syrian Arab Rep.",,2,,,,,,2
+2011,"South Korea","Syrian Arab Rep.",,2,,,,,,2
 2011,Kuwait,"Syrian Arab Rep.",10,10,,,,,,20
 2011,Lebanon,"Syrian Arab Rep.",124,367,,,,,,491
 2011,Lebanon,"Syrian Arab Rep.",,,,,,,4840,4840
@@ -947,8 +947,8 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2011,Latvia,"Syrian Arab Rep.",4,11,,,,,,15
 2011,"Macao SAR, China","Syrian Arab Rep.",,4,,,,,,4
 2011,Morocco,"Syrian Arab Rep.",,5,,,,,,5
-2011,"Rep. of Moldova","Syrian Arab Rep.",11,10,,,,,,21
-2011,"The former Yugoslav Republic of Macedonia","Syrian Arab Rep.",,0,,,,,,
+2011,"Moldova","Syrian Arab Rep.",11,10,,,,,,21
+2011,"Macedonia","Syrian Arab Rep.",,0,,,,,,
 2011,Malta,"Syrian Arab Rep.",80,72,,,,,,152
 2011,Montenegro,"Syrian Arab Rep.",,0,,,,,,
 2011,Malaysia,"Syrian Arab Rep.",4,8,,,,,,12
@@ -962,7 +962,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2011,Poland,"Syrian Arab Rep.",10,10,,,,,,20
 2011,Qatar,"Syrian Arab Rep.",8,,,,,,,8
 2011,Romania,"Syrian Arab Rep.",20,27,,,,,,47
-2011,"Russian Federation","Syrian Arab Rep.",4,12,,,,,,16
+2011,"Russia","Syrian Arab Rep.",4,12,,,,,,16
 2011,"Saudi Arabia","Syrian Arab Rep.",14,12,,,,,,26
 2011,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",,0,,,,,,
 2011,Slovakia,"Syrian Arab Rep.",23,0,,,,,,23
@@ -975,7 +975,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2011,Tunisia,"Syrian Arab Rep.",11,0,,,,,,11
 2011,Turkey,"Syrian Arab Rep.",19,205,,,,,9270,9494
 2011,Ukraine,"Syrian Arab Rep.",43,176,,,,,,219
-2011,"United States of America","Syrian Arab Rep.",373,112,,,,,,485
+2011,"United States","Syrian Arab Rep.",373,112,,,,,,485
 2011,Yemen,"Syrian Arab Rep.",42,24,,,,,,66
 2012,Afghanistan,"Syrian Arab Rep.",1,0,,,,,,1
 2012,Angola,"Syrian Arab Rep.",,1,,,,,,1
@@ -990,7 +990,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2012,Benin,"Syrian Arab Rep.",1,0,,,,,,1
 2012,Bulgaria,"Syrian Arab Rep.",97,0,,,,,,97
 2012,Bahrain,"Syrian Arab Rep.",,3,,,,,,3
-2012,"Bosnia and Herzegovina","Syrian Arab Rep.",5,26,,,,,,31
+2012,"Bosnia and Herz.","Syrian Arab Rep.",5,26,,,,,,31
 2012,Belarus,"Syrian Arab Rep.",,11,,,,,,11
 2012,Brazil,"Syrian Arab Rep.",42,67,,,,,,109
 2012,Canada,"Syrian Arab Rep.",533,404,,,,,,937
@@ -1032,7 +1032,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2012,Kazakhstan,"Syrian Arab Rep.",,12,,,,,,12
 2012,Kyrgyzstan,"Syrian Arab Rep.",7,34,,,,,,41
 2012,Cambodia,"Syrian Arab Rep.",,1,,,,,,1
-2012,"Rep. of Korea","Syrian Arab Rep.",,146,,,,,,146
+2012,"South Korea","Syrian Arab Rep.",,146,,,,,,146
 2012,Kuwait,"Syrian Arab Rep.",15,8,,,,,,23
 2012,Lebanon,"Syrian Arab Rep.",126939,242,,,,,,127181
 2012,Libya,"Syrian Arab Rep.",,3794,,,,,,3794
@@ -1043,9 +1043,9 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2012,Latvia,"Syrian Arab Rep.",17,15,,,,,,32
 2012,"Macao SAR, China","Syrian Arab Rep.",,1,,,,,,1
 2012,Morocco,"Syrian Arab Rep.",,842,,,,,,842
-2012,"Rep. of Moldova","Syrian Arab Rep.",55,33,,,,,,88
+2012,"Moldova","Syrian Arab Rep.",55,33,,,,,,88
 2012,Mexico,"Syrian Arab Rep.",2,0,,,,,,2
-2012,"The former Yugoslav Republic of Macedonia","Syrian Arab Rep.",,1,,,,,,1
+2012,"Macedonia","Syrian Arab Rep.",,1,,,,,,1
 2012,Malta,"Syrian Arab Rep.",191,139,,,,,,330
 2012,Montenegro,"Syrian Arab Rep.",,7,,,,,,7
 2012,Malaysia,"Syrian Arab Rep.",4,83,,,,,,87
@@ -1063,7 +1063,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2012,Portugal,"Syrian Arab Rep.",,9,,,,,,9
 2012,Qatar,"Syrian Arab Rep.",8,1,,,,,,9
 2012,Romania,"Syrian Arab Rep.",152,10,,,,,,162
-2012,"Russian Federation","Syrian Arab Rep.",53,91,,,,,1400,1544
+2012,"Russia","Syrian Arab Rep.",53,91,,,,,1400,1544
 2012,"Saudi Arabia","Syrian Arab Rep.",14,12,,,,,,26
 2012,Sudan,"Syrian Arab Rep.",,32,,,,,,32
 2012,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",,49,,,,,,49
@@ -1076,10 +1076,10 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2012,Thailand,"Syrian Arab Rep.",10,60,,,,,,70
 2012,Tunisia,"Syrian Arab Rep.",6,30,,,,,,36
 2012,Turkey,"Syrian Arab Rep.",248466,200,68573,,,,,317239
-2012,"United Rep. of Tanzania","Syrian Arab Rep.",,1,,,,,,1
+2012,"Tanzania","Syrian Arab Rep.",,1,,,,,,1
 2012,Uganda,"Syrian Arab Rep.",,1,,,,,,1
 2012,Ukraine,"Syrian Arab Rep.",63,453,,,,,,516
-2012,"United States of America","Syrian Arab Rep.",1425,367,,,,,,1792
+2012,"United States","Syrian Arab Rep.",1425,367,,,,,,1792
 2012,Yemen,"Syrian Arab Rep.",42,131,,,,,,173
 2012,"South Africa","Syrian Arab Rep.",2,8,,,,,,10
 2013,Angola,"Syrian Arab Rep.",,1,,,,,,1
@@ -1095,10 +1095,10 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2013,Benin,"Syrian Arab Rep.",1,0,,,,,,1
 2013,Bulgaria,"Syrian Arab Rep.",2104,2500,,,,,,4604
 2013,Bahrain,"Syrian Arab Rep.",,0,,,,,,
-2013,"Bosnia and Herzegovina","Syrian Arab Rep.",48,18,,,,,,66
+2013,"Bosnia and Herz.","Syrian Arab Rep.",48,18,,,,,,66
 2013,Belarus,"Syrian Arab Rep.",35,25,,,,,,60
 2013,Belize,"Syrian Arab Rep.",,0,,,,,,
-2013,"Bolivia (Plurinational State of)","Syrian Arab Rep.",3,0,,,,,,3
+2013,"Bolivia","Syrian Arab Rep.",3,0,,,,,,3
 2013,Brazil,"Syrian Arab Rep.",333,70,,,,,,403
 2013,Barbados,"Syrian Arab Rep.",1,0,,,,,,1
 2013,Canada,"Syrian Arab Rep.",592,435,,,,,,1027
@@ -1107,7 +1107,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2013,China,"Syrian Arab Rep.",,1,,,,,,1
 2013,"Cote d'Ivoire","Syrian Arab Rep.",2,12,,,,,,14
 2013,Cameroon,"Syrian Arab Rep.",1,7,,,,,,8
-2013,"Dem. Rep. of the Congo","Syrian Arab Rep.",,2,,,,,,2
+2013,"Dem. Rep. Congo","Syrian Arab Rep.",,2,,,,,,2
 2013,Colombia,"Syrian Arab Rep.",2,1,,,,,,3
 2013,"Costa Rica","Syrian Arab Rep.",1,4,,,,,,5
 2013,Cuba,"Syrian Arab Rep.",24,0,,,,,,24
@@ -1146,7 +1146,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2013,Kazakhstan,"Syrian Arab Rep.",7,22,,,,,,29
 2013,Kyrgyzstan,"Syrian Arab Rep.",14,78,,,,,,92
 2013,Cambodia,"Syrian Arab Rep.",,1,,,,,,1
-2013,"Rep. of Korea","Syrian Arab Rep.",,431,,,,,,431
+2013,"South Korea","Syrian Arab Rep.",,431,,,,,,431
 2013,Kuwait,"Syrian Arab Rep.",13,8,,,,,,21
 2013,Lebanon,"Syrian Arab Rep.",851284,331,1,,,,,851616
 2013,Liberia,"Syrian Arab Rep.",,8,,,,,,8
@@ -1159,9 +1159,9 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2013,Latvia,"Syrian Arab Rep.",33,12,,,,,,45
 2013,"Macao SAR, China","Syrian Arab Rep.",,1,,,,,,1
 2013,Morocco,"Syrian Arab Rep.",856,0,,,,,,856
-2013,"Rep. of Moldova","Syrian Arab Rep.",139,27,,,,,,166
+2013,"Moldova","Syrian Arab Rep.",139,27,,,,,,166
 2013,Mexico,"Syrian Arab Rep.",13,0,,,,,,13
-2013,"The former Yugoslav Republic of Macedonia","Syrian Arab Rep.",,205,,,,,,205
+2013,"Macedonia","Syrian Arab Rep.",,205,,,,,,205
 2013,Malta,"Syrian Arab Rep.",776,102,,,,,,878
 2013,Montenegro,"Syrian Arab Rep.",,60,,,,,,60
 2013,Mongolia,"Syrian Arab Rep.",,3,,,,,,3
@@ -1180,13 +1180,13 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2013,Portugal,"Syrian Arab Rep.",14,8,,,,,,22
 2013,Qatar,"Syrian Arab Rep.",8,0,,,,,,8
 2013,Romania,"Syrian Arab Rep.",932,91,,,,,,1023
-2013,"Russian Federation","Syrian Arab Rep.",1163,839,,,,,1400,3402
+2013,"Russia","Syrian Arab Rep.",1163,839,,,,,1400,3402
 2013,"Saudi Arabia","Syrian Arab Rep.",14,12,,,,,,26
 2013,Sudan,"Syrian Arab Rep.",84,224,,,,,,308
 2013,Senegal,"Syrian Arab Rep.",,4,,,,,,4
 2013,Somalia,"Syrian Arab Rep.",,8,,,,,,8
 2013,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",3,60,,,,,,63
-2013,"South Sudan","Syrian Arab Rep.",,1,,,,,,1
+2013,"S. Sudan","Syrian Arab Rep.",,1,,,,,,1
 2013,Slovakia,"Syrian Arab Rep.",26,0,,,,,,26
 2013,Slovenia,"Syrian Arab Rep.",9,2,,,,,,11
 2013,Sweden,"Syrian Arab Rep.",17984,6808,,,,,,24792
@@ -1197,11 +1197,11 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2013,"Trinidad and Tobago","Syrian Arab Rep.",1,0,,,,,,1
 2013,Tunisia,"Syrian Arab Rep.",164,,,,,,,164
 2013,Turkey,"Syrian Arab Rep.",585601,110,140756,,,,,726467
-2013,"United Rep. of Tanzania","Syrian Arab Rep.",,6,,,,,,6
+2013,"Tanzania","Syrian Arab Rep.",,6,,,,,,6
 2013,Uganda,"Syrian Arab Rep.",,8,,,,,,8
 2013,Ukraine,"Syrian Arab Rep.",167,591,,,,,,758
 2013,Uruguay,"Syrian Arab Rep.",,1,,,,,,1
-2013,"United States of America","Syrian Arab Rep.",3802,1378,,,,,,5180
+2013,"United States","Syrian Arab Rep.",3802,1378,,,,,,5180
 2013,Yemen,"Syrian Arab Rep.",54,1761,,,,,,1815
 2013,"South Africa","Syrian Arab Rep.",8,11,,,,,,19
 2013,Zambia,"Syrian Arab Rep.",,4,,,,,,4
@@ -1216,9 +1216,9 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2014,Azerbaijan,"Syrian Arab Rep.",7,7,,,,,,14
 2014,Belgium,"Syrian Arab Rep.",2620,733,,,,,,3353
 2014,Bulgaria,"Syrian Arab Rep.",8501,2510,,,,,,11011
-2014,"Bosnia and Herzegovina","Syrian Arab Rep.",25,*,,,,,,27
+2014,"Bosnia and Herz.","Syrian Arab Rep.",25,*,,,,,,27
 2014,Belarus,"Syrian Arab Rep.",72,48,,,,,,120
-2014,"Bolivia (Plurinational State of)","Syrian Arab Rep.",6,*,,,,,,6
+2014,"Bolivia","Syrian Arab Rep.",6,*,,,,,,6
 2014,Brazil,"Syrian Arab Rep.",1739,76,,,,,,1815
 2014,Barbados,"Syrian Arab Rep.",*,,,,,,,*
 2014,"Central African Rep.","Syrian Arab Rep.",,8,,,,,,8
@@ -1228,7 +1228,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2014,China,"Syrian Arab Rep.",5,*,,,,,,6
 2014,"Cote d'Ivoire","Syrian Arab Rep.",*,16,,,,,,19
 2014,Cameroon,"Syrian Arab Rep.",*,11,,,,,,13
-2014,"Dem. Rep. of the Congo","Syrian Arab Rep.",,*,,,,,,*
+2014,"Dem. Rep. Congo","Syrian Arab Rep.",,*,,,,,,*
 2014,Colombia,"Syrian Arab Rep.",*,*,,,,,,6
 2014,"Costa Rica","Syrian Arab Rep.",5,*,,,,,,9
 2014,Cuba,"Syrian Arab Rep.",20,*,,,,,,20
@@ -1269,7 +1269,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2014,Kenya,"Syrian Arab Rep.",,5,,,,,,5
 2014,Kyrgyzstan,"Syrian Arab Rep.",56,17,,,,,,73
 2014,Cambodia,"Syrian Arab Rep.",,*,,,,,,*
-2014,"Rep. of Korea","Syrian Arab Rep.",503,64,,,,,,567
+2014,"South Korea","Syrian Arab Rep.",503,64,,,,,,567
 2014,Kuwait,"Syrian Arab Rep.",15,7,,,,,,22
 2014,Lebanon,"Syrian Arab Rep.",1147494,417,,,,,,1147911
 2014,Lebanon,"Syrian Arab Rep.",,,,,,,1992,1992
@@ -1283,9 +1283,9 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2014,Latvia,"Syrian Arab Rep.",52,17,,,,,,69
 2014,"Macao SAR, China","Syrian Arab Rep.",,*,,,,,,*
 2014,Morocco,"Syrian Arab Rep.",647,,,,,,,647
-2014,"Rep. of Moldova","Syrian Arab Rep.",186,22,,,,,,208
+2014,"Moldova","Syrian Arab Rep.",186,22,,,,,,208
 2014,Mexico,"Syrian Arab Rep.",13,6,,,,,,19
-2014,"The former Yugoslav Republic of Macedonia","Syrian Arab Rep.",11,654,,,,,,665
+2014,"Macedonia","Syrian Arab Rep.",11,654,,,,,,665
 2014,Mali,"Syrian Arab Rep.",16,*,,,,,,17
 2014,Malta,"Syrian Arab Rep.",1047,34,,,,,,1081
 2014,Montenegro,"Syrian Arab Rep.",,36,,,,,,36
@@ -1309,13 +1309,13 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2014,Paraguay,"Syrian Arab Rep.",7,9,,,,,,16
 2014,Qatar,"Syrian Arab Rep.",14,*,,,,,,14
 2014,Romania,"Syrian Arab Rep.",1278,114,,,,,,1392
-2014,"Russian Federation","Syrian Arab Rep.",1927,413,,,,,,2340
+2014,"Russia","Syrian Arab Rep.",1927,413,,,,,,2340
 2014,"Saudi Arabia","Syrian Arab Rep.",18,12,,,,,,30
 2014,Sudan,"Syrian Arab Rep.",797,238,,,,,,1035
 2014,Senegal,"Syrian Arab Rep.",,21,,,,,,21
 2014,Somalia,"Syrian Arab Rep.",,63,,,,,,63
 2014,"Serbia and Kosovo (S/RES/1244 (1999))","Syrian Arab Rep.",6,238,,,,,,244
-2014,"South Sudan","Syrian Arab Rep.",,*,,,,,,*
+2014,"S. Sudan","Syrian Arab Rep.",,*,,,,,,*
 2014,Slovakia,"Syrian Arab Rep.",40,*,,,,,,40
 2014,Slovenia,"Syrian Arab Rep.",20,8,,,,,,28
 2014,Sweden,"Syrian Arab Rep.",34285,19011,,,,,,53296
@@ -1329,7 +1329,7 @@ Year,Destination,Origin,Refugees,AsylumSeekers,ReturnedRefugees,IDPs,ReturnedIDP
 2014,Uganda,"Syrian Arab Rep.",*,13,,,,,,14
 2014,Ukraine,"Syrian Arab Rep.",341,594,,,,,,935
 2014,Uruguay,"Syrian Arab Rep.",48,11,,,,,,59
-2014,"United States of America","Syrian Arab Rep.",4750,2302,,,,,,7052
+2014,"United States","Syrian Arab Rep.",4750,2302,,,,,,7052
 2014,"Venezuela (Bolivarian Republic of)","Syrian Arab Rep.",,*,,,,,,*
 2014,Yemen,"Syrian Arab Rep.",2276,1039,,,,,,3315
 2014,"South Africa","Syrian Arab Rep.",28,37,,,,,,65

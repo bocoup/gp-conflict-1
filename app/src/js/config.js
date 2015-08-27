@@ -16,6 +16,6 @@ window.Config = {
   },
 
   // default data year
-  year: '2014',
+  year: 'Refugees_2014',
 
 };
