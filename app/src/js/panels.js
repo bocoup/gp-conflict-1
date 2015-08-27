@@ -95,9 +95,7 @@
       // update callout control text
       self.control.html(panel.nextCaption);
 
-      panel.enter();
-
-
+      return panel.enter();
     });
 
 
