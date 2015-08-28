@@ -3,6 +3,21 @@
 
 Goal: Illuminate how bad the situation in Syria has become and how fast, focusing on the refugees.
 
+## Getting things running:
+
+`npm install`
+`bower install`
+`grunt dev`
+
+Visit `http://localhost:8001`.
+
+All the source is in the `app` directory.
+The build files will go into `app/build`. That is also what will be on `gh-pages`. You can see things live here: http://bocoup.github.io/gp-conflict-1/
+
+Warning! Things are still very much in flux, so this repo is likely to change a lot. 
+
+## Notes from previous meetings:
+
 About the story:
 - ~5000 words
 - There will be heavy use of photography and video
