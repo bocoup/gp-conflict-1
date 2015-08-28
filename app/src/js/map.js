@@ -23,7 +23,7 @@
         height: 600
       });
 
-    this.map = L.mapbox.map('map', 'ir0s.n8mo8g3c'); // load map
+    this.map = L.mapbox.map('map', 'ir0s.81c9e188'); // load map
 
     this.map.setView.apply(this.map, centers.World); // initial center
     this.map._initPathRoot(); // init svg
@@ -42,9 +42,9 @@
     return this;
   };
 
-  M.prototype.zoomTo = function(center) {
+  M.prototype.zoomTo = Promise.method(function(center) {
     this.map.setView.apply(this.map, centers[center], { animate: true });
-  };
+  });
 
   M.prototype.closePopups = function() {
     this.map.closePopup();

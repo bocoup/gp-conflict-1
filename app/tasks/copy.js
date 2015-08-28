@@ -24,6 +24,12 @@ module.exports = function(grunt) {
       cwd: "../screenshots",
       src: ["*"],
       dest: "build/screenshots"
+    },
+    fonts: {
+      expand: true,
+      cwd: "src/css/fonts",
+      src: ["*.otf"],
+      dest: "build/fonts"
     }
   });
 

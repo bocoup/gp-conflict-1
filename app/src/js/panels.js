@@ -87,15 +87,17 @@
       var panel = panels[idx];
 
       // pan map
-      this.mapWrapper.zoomTo(panel.center);
+      var zoomIn = this.mapWrapper.zoomTo(panel.center);
 
-      // update callout content
-      self.content.html(JST[panel.template]());
+      return zoomIn.then(function() {
+        // update callout content
+        self.content.html(JST[panel.template]());
 
-      // update callout control text
-      self.control.html(panel.nextCaption);
+        // update callout control text
+        self.control.html(panel.nextCaption);
 
-      return panel.enter();
+        return panel.enter();
+      });
     });
 
 

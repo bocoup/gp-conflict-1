@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         "include css": true
       },
       files: {
-        'build/styles.css' : ['src/css/*']
+        'build/styles.css' : ['src/css/*.styl']
       }
     }
   });
