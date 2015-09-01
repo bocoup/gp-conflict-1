@@ -1,0 +1,22 @@
+{
+  "name": "sketches2",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bocoup/gp-conflict-1",
+  "authors": [
+    "Irene Ros <imirene@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "d3": "~3.5.6",
+    "topojson": "~1.6.19"
+  }
+}
