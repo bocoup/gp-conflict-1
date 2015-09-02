@@ -52,7 +52,7 @@ var makeLabels = function(map) {
     var labels = map.selectAll("text.countryname")
         .data(data);
 
-    var exclude = ["Israel", "Palestine", "Jordan"];
+    var exclude = ["Israel", "Palestine"];
     labels.enter().append("text")
       .attr("class", "countryname")
       .text(function(d) {
