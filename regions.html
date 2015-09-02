@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="mapcontainer">
+      <div id="map">
+      </div>
+    </div>
+
+
+    <div id="content">
+      <h1>Escape Routes</h1>
+      <p>
+        As the government crackdown on protesters spread, and an armed rebellion erupted, average Syrians caught in the middle began to flee their homes. Once the rebels themselves began to splinter, and religious extremists &mdash; many of them from outside Syria &mdash; began to pour over the borders, the numbers of Syrians headed the other way swelled. The numbers are so huge they can only be estimates. Conservative counts put the total number of Syrians who have left their homes at 11.6 million. More than 7.6 million are internally displaced, meaning they have been forced from their homes but remain inside Syria. Another 4 million have managed to cross the border.
+      </p>
+    </div>
+
+    <svg class="legend" width="300" height="100">
+
+      <path d="M0,-5.26429605180997L6.078685485212741,5.26429605180997 -6.078685485212741,5.26429605180997Z" class="camp marker" transform="translate(7.26429605180997, 6.078685485212741) scale(1.2)" original-title=""></path> - 1
+
+      <text x="20" y="14">Refugee Camp</text>
+
+      <path d="M0,5.26429605180997L6.078685485212741,-5.26429605180997 -6.078685485212741,-5.26429605180997Z" class="idp marker" transform="translate(7.078685485212741, 26) scale(1.2)" original-title=""></path> - 2
+
+      <text x="20" y="33">Internal Displacement Camp</text>
+
+      <rect class="crossing marker" x="2" width="12" y="40" height="12"></rect>
+
+      <text x="20" y="52">Border Crossing</text>
+
+    </svg>
+  </div>
+
+  <script type="text/javascript" src="bower_components/d3/d3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/topojson/topojson.js"></script>
+  <script type="text/javascript" src="bower_components/bluebird/js/browser/bluebird.js"></script>
+  <script type="text/javascript" src="bower_components/tipsy/src/javascripts/jquery.tipsy.js"></script>
+
+  <script type="text/javascript" src="src/util.js"></script>
+  <script type="text/javascript" src="src/data.js"></script>
+  <script type="text/javascript" src="src/regions.js"></script>
+</body>
+</html>
