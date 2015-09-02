@@ -1,4 +1,4 @@
-var images = ['/images/Region.png']
+var images = ['images/Region.png']
 images.forEach(function(i) {
   Util.preloadImage(i);
 });
