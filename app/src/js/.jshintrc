@@ -22,6 +22,7 @@
     "$": true,
     "Promise": true,
     "topojson": true,
-    "imageRegionPairs": true
+    "imageRegionPairs": true,
+    "Modernizr": true
   }
 }

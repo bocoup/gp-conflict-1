@@ -129,10 +129,22 @@ function makeCamps(args) {
       .delay(function(d, i) { return i * 50; })
       .style('opacity', 1);
 
-    d3.select('#map').transition()
-      .duration(2000).delay(1000).style({
-      transform: "scale(2) translate(-50px, 50px)"
-    });
+
+    if (Modernizr.testProp('transform')) {
+      d3.select('#map').transition()
+        .duration(2000).delay(1000).style({
+        transform: "scale(2) translate(-50px, 50px)"
+      });
+    } else {
+      d3.select('#map').transition()
+        .duration(2000).delay(1000)
+        .styleTween("-webkit-transform", function() {
+          return d3.interpolateString(
+            "scale(1) translate(0px,0px)",
+            "scale(2) translate(-50px, 50px)"
+          );
+        });
+    }
 
     return Promise.resolve(args);
   });

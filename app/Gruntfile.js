@@ -9,13 +9,15 @@ module.exports = function(grunt) {
       'bower_components/topojson/topojson.js',
       'bower_components/bluebird/js/browser/bluebird.js',
       'bower_components/jquery/dist/jquery.js',
-      'bower_components/tipsy/src/javascripts/jquery.tipsy.js'
+      'bower_components/tipsy/src/javascripts/jquery.tipsy.js',
+      'src/lib/modernizr.js'
     ],
     src: [
       'src/js/util.js',
       'src/js/map.js',
       'src/js/data.js',
       'src/js/init.js',
+
     ]
   });
 

@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     },
     css: {
       files: {
-        'build/styles.css' : ['src/css/styles.styl']
+        'build/styles.css' : ['nib', 'src/css/styles.styl']
       },
     },
     individual: {
