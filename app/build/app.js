@@ -286,6 +286,12 @@ window.imageRegionPairs = {
     geoProp: 'syria'
   },
 
+  settling: {
+    image : 'images/Region.png',
+    geoGet: 'getRegionGeo',
+    geoProp: 'region'
+  },
+
   worldRef: {
     image: 'images/WorldReference.png'
   }

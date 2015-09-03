@@ -14,6 +14,7 @@
   "esnext": true,
   "devel": true,
   "multistr": true,
+  "loopfunc": true,
   "globals": {
     "d3": true,
     "Util": true,

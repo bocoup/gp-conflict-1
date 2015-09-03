@@ -14,7 +14,8 @@ module.exports = function(grunt) {
     individual: {
       files: {
         'build/syria.js' : ['src/js/syria.js'],
-        'build/region.js' : ['src/js/region.js']
+        'build/region.js' : ['src/js/region.js'],
+        'build/settling.js' : ['src/js/settling.js']
       }
     }
   });

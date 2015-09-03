@@ -12,7 +12,8 @@ module.exports = function(grunt) {
     individual: {
       files: {
         'build/syria.css' : ['src/css/syria.styl'],
-        'build/region.css' : ['src/css/region.styl']
+        'build/region.css' : ['src/css/region.styl'],
+        'build/settling.css' : ['src/css/settling.styl']
       }
     }
   });
