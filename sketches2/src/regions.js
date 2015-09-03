@@ -1,86 +1,16 @@
-var images = ['images/Region.png']
-images.forEach(function(i) {
-  Util.preloadImage(i);
-});
+var makeHoverable = Promise.method(function(args) {
+  var map = args[0];
 
-var path;
-var mapRaster = Promise.method(function(el, img) {
-
-  var width = 960,
-    height = 800;
-
-  // append raster
-  d3.select(el).append('img')
-    .attr('src', img);
-
-  // add svg
-  var svg = d3.select(el).append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("viewBox", "0 0 " +width+ " "+height+"")
-    .attr("preserveAspectRatio", "xMidYMid");
-
-  // add group container
-  var map = svg.append("g");
-
-  path = d3.geo.path()
-     .projection(null);
-
-  return Promise.resolve(map);
-});
-
-function makeRegions(map) {
-  return Data.getGeo().then(function(region) {
-
-    var data = topojson.feature(region, region.objects.region).features;
-    var countries = map.selectAll("path.land")
-        .data(data);
-
-    countries.enter().append("path")
-      .attr("name", function(d) { return d.properties.name; })
-      .attr("class", "land")
-      .attr("d", path);
-
-    return map;
-  });
-}
-
-var makeLabels = function(map) {
-
-  return Data.getGeo().then(function(region) {
-    var data = topojson.feature(region, region.objects.region).features;
-    var labels = map.selectAll("text.countryname")
-        .data(data);
-
-    var exclude = ["Israel", "Palestine"];
-    labels.enter().append("text")
-      .attr("class", "countryname")
-      .text(function(d) {
-        if (exclude.indexOf(d.properties.NAME) === -1) {
-          return d.properties.NAME;
-        } else {
-          return "";
-        }
-      })
-      .attr({
-        x : function(d) { return path.centroid(d)[0]; },
-        y : function(d) { return path.centroid(d)[1]; }
-      });
-
-    return map;
-  });
-};
-
-var makeHoverable = Promise.method(function(map) {
   map.selectAll('.land').on('mouseover', function(d) {
     d3.select(this).classed('selected', true);
   }).on('mouseout', function(d) {
     d3.select(this).classed('selected', false);
   });
-  return Promise.resolve(map);
+  return Promise.resolve(args);
 });
 
-function makeCamps(map) {
+function makeCamps(args) {
+  var map = args[0];
 
   var campsg = map.append("g");
   var idpg = map.append("g");
@@ -95,10 +25,14 @@ function makeCamps(map) {
     };
   };
 
-  var onMouseover = function(d) { d3.select(this).classed('selected', true).moveToFront(); }
-  var onMouseout = function(d) { d3.select(this).classed('selected', false); }
+  var onMouseover = function(d) {
+    d3.select(this).classed('selected', true).moveToFront();
+  }
+  var onMouseout = function(d) {
+    d3.select(this).classed('selected', false);
+  }
 
-  Data.getCamps().then(function(camps) {
+  return Data.getRegionGeo().then(function(camps) {
 
     // crossings
     var crossingsData = topojson.feature(camps, camps.objects.crossings).features;
@@ -178,17 +112,15 @@ function makeCamps(map) {
       transform: "scale(2) translate(-50px, 50px)"
     });
 
+    return Promise.resolve(args);
   });
 }
 
+Map.makeRaster('#map',
+    imageRegionPairs.region.image,
+    imageRegionPairs.region.geoProp,
+    imageRegionPairs.region.geoGet)
 
-
-mapRaster('#map', images[0])
-  .then(makeRegions)
-  .then(makeLabels)
-  .then(makeHoverable)
+  .then(Map.makeRegions)
+  .then(Map.makeLabels)
   .then(makeCamps);
-
-// showCamps('#map');
-
-
