@@ -14,6 +14,7 @@ var makeCities = function(args) {
     var size = 3;
     citiesMarkers.enter()
       .append('g')
+      .style('opacity', 0)
       .attr({ "class": "city marker" })
       .attr({ name : function(d) { return d.properties.NAME; }})
       .each(function(d) {
@@ -39,12 +40,18 @@ var makeCities = function(args) {
           });
       });
 
+    citiesMarkers
+      .transition()
+      .delay(function(d, i) {
+        return i * 50;
+      }).style('opacity', 1);
+
     var capitalData = topojson.feature(geoData, geoData.objects.capital).features;
-    var citiesMarkers = citiesg.selectAll('g.capital')
+    var capitalMarker = citiesg.selectAll('g.capital')
       .data(capitalData);
     var sym = d3.svg.symbol().type('cross');
 
-    citiesMarkers.enter()
+    capitalMarker.enter()
       .append('g')
       .attr("class", "capital")
       .each(function(d) {
@@ -70,6 +77,9 @@ var makeCities = function(args) {
           });
       });
 
+    capitalMarker
+      .transition()
+      .style('opacity', 1);
 
   });
 }
