@@ -94,6 +94,7 @@ function makeCamps(args) {
         .on('mouseout', onMouseout);
 
     campMarkerPaths.transition()
+      .delay(function(d, i) { return i * 50; })
       .style('opacity', 1);
 
     // ==== idp sites
@@ -125,6 +126,7 @@ function makeCamps(args) {
       .on('mouseout', onMouseout);
 
     idpMarkerPaths.transition()
+      .delay(function(d, i) { return i * 50; })
       .style('opacity', 1);
 
     d3.select('#map').transition()
@@ -136,6 +138,19 @@ function makeCamps(args) {
   });
 }
 
+var fixSizing = Promise.method(function(args) {
+  d3.select('g.capital path').attr("d",
+    "M 0.000 1.000 L 1.763 2.427 L 0.951 0.309 L 2.853 -0.927 L 0.588 -0.809 L 0.000 -3.000 L -0.588 -0.809 L -2.853 -0.927 L -0.951 0.309 L -1.763 2.427 L 0.000 1.000"
+  );
+
+  var t = d3.select('g.capital text');
+  var x = t.attr('x');
+  var y = t.attr('y');
+
+  t.attr({ x : x - 4, y : y - 4 });
+  return Promise.resolve(args);
+});
+
 Map.makeRaster('#map',
     imageRegionPairs.region.image,
     imageRegionPairs.region.geoProp,
@@ -143,4 +158,6 @@ Map.makeRaster('#map',
 
   .then(Map.makeRegions)
   .then(Map.makeLabels)
+  .then(Map.makeCities)
+  .then(fixSizing)
   .then(makeCamps);
