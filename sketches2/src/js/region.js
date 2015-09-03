@@ -1,3 +1,5 @@
+var path = window.path || null;
+
 var makeHoverable = Promise.method(function(args) {
   var map = args[0];
 
@@ -27,10 +29,10 @@ function makeCamps(args) {
 
   var onMouseover = function(d) {
     d3.select(this).classed('selected', true).moveToFront();
-  }
+  };
   var onMouseout = function(d) {
     d3.select(this).classed('selected', false);
-  }
+  };
 
   return Data.getRegionGeo().then(function(camps) {
 
@@ -82,7 +84,7 @@ function makeCamps(args) {
     // idp sites
 
     var idpData = topojson.feature(camps, camps.objects.idp).features;
-    var sym = d3.svg.symbol()
+    sym = d3.svg.symbol()
       .type('triangle-down');
 
     var idpMarkers = idpg.selectAll('path.idp')
@@ -103,7 +105,7 @@ function makeCamps(args) {
         return 'Displacement Camp: <span class="campname"><br/>' + d.properties.NAME + "</span>";
       }))
       .on('mouseover', onMouseover)
-      .on('mouseout', onMouseout)
+      .on('mouseout', onMouseout);
 
     idpMarkers.transition()
       .style('opacity', 1);

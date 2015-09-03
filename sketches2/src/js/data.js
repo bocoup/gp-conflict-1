@@ -9,7 +9,7 @@
           def.resolve(data);
         });
       return def.promise;
-    }
+    };
   }
 
   window.Data = {
@@ -55,9 +55,6 @@
           rate_max: ratemax,
           rate_min: ratemin
         };
-
-
-      return def.promise;
     }),
 
     getRegionGeo: general('data/sites.json'),

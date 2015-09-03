@@ -1,6 +1,8 @@
+var path = window.path || null;
+
 var makeCities = function(args) {
 
-  var map = args[0]
+  var map = args[0],
     regionProp = args[1],
     getGeoFunc = args[2];
 
@@ -82,15 +84,12 @@ var makeCities = function(args) {
       .style('opacity', 1);
 
   });
-}
-
+};
 
 Map.makeRaster('#map',
     imageRegionPairs.syria.image,
     imageRegionPairs.syria.geoProp,
     imageRegionPairs.syria.geoGet)
-
   .then(Map.makeRegions)
   .then(Map.makeLabels)
-
   .then(makeCities);

@@ -1,9 +1,15 @@
 {
-  "name": "sketches2",
-  "version": "0.0.0",
+  "name": "gp-conflict-1",
+  "version": "0.0.1",
   "homepage": "https://github.com/bocoup/gp-conflict-1",
   "authors": [
     "Irene Ros <imirene@gmail.com>"
+  ],
+  "description": "Global Post, Conflict, Piece 1",
+  "keywords": [
+    "visualization",
+    "map",
+    "conflict"
   ],
   "license": "MIT",
   "private": true,

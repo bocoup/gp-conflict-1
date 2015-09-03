@@ -1,0 +1,102 @@
+/*
+/// ---- Accents
+$c_accent_primary:        hsla(0, 66%, 60%, 1);            // #dc5555
+$c_accent_primary_dark:   darken($c_accent_primary, 40%);  // #511
+$c_accent_primary_light:  lighten($c_accent_primary, 35%); // #fbeaea
+
+/// ---- Text
+$c_text_darkest:    hsla(0, 0%, 13.5%, 1);              // #222
+$c_text_darker:     lighten($c_text_darkest, 13.6%);    // #444
+$c_text_dark:       lighten($c_text_darkest, 26.9%);    // #666
+
+$c_text_lightest:   hsla(0, 0%, 100%, 1);               // #fff
+$c_text_lighter:    darken($c_chrome_lightest, 31.5%);  // #aaa
+$c_text_light:      darken($c_chrome_lightest, 44.5%);  // #888
+
+*/
+
+@import 'fonts.styl';
+@import 'tipsy.styl';
+@import 'theme.styl';
+
+body {
+  background-color: $c_chrome_lightest;
+  font-family: MuseoSans;
+  margin: 0;
+  padding: 0;
+  color: rgb(34, 34, 34);
+}
+
+#container {
+  height: 520px;
+  overflow: hidden;
+  border-bottom: 1px solid $c_chrome_lighter;
+  position: relative;
+
+  h1 {
+    color: rgb(34, 34, 34);
+    font-size: 2.5em;
+    line-height: 1.3em;
+    font-family: MuseoSansBold;
+    font-weight: 900;
+  }
+
+  p {
+    line-height: 1.5454545455em;
+  }
+}
+
+#map {
+  transform: scale(1); /* needed for raster lineup w map overlay. not sure why */
+  float:right;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .land {
+      fill: #fff;
+      fill-opacity: 0;
+    }
+    .land.selected {
+      fill: orange;
+      opacity: 0.2;
+    }
+
+    .countryname {
+      font-family: MuseoSansMedBold;
+      fill: $c_text_darker;
+      text-anchor: middle;
+      font-size: 16px;
+    }
+  }
+}
+
+#mapContainer {
+  width: 100%;
+  float: right;
+  display: inline-block;
+  overflow:hidden;
+  height: 100%;
+}
+
+#content {
+  margin: 15px;
+  padding: 20px;
+  background-color:rgba(250,250,250,0.5);
+  width: 30%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+
+.legend {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+}
+
+
+

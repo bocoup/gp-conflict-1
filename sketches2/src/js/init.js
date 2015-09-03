@@ -1,5 +1,5 @@
 // Preload images
-var imageRegionPairs = {
+window.imageRegionPairs = {
   region: {
     image : 'images/Region.png',
     geoGet: 'getRegionGeo',
@@ -10,9 +10,13 @@ var imageRegionPairs = {
     image: 'images/Syria.png',
     geoGet: 'getSyriaGeo',
     geoProp: 'syria'
+  },
+
+  worldRef: {
+    image: 'images/WorldReference.png'
   }
 };
 
 Util.preloadImage(imageRegionPairs.region.image);
 Util.preloadImage(imageRegionPairs.syria.image);
-Util.preloadImage('images/WorldReference.png');
+Util.preloadImage(imageRegionPairs.worldRef.image);

@@ -1,4 +1,4 @@
-window.path;
+var path = window.path || null;
 
 /**
 * Raster Map Maker
