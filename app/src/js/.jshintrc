@@ -18,13 +18,10 @@
     "d3": true,
     "Util": true,
     "Data": true,
-    "_": true,
-    "L": true,
+    "Map": true,
     "$": true,
     "Promise": true,
-    "JST": true,
-    "Config": true,
-    "MapWrapper": true,
-    "PanelManager": true
+    "topojson": true,
+    "imageRegionPairs": true
   }
 }

@@ -1,62 +1,90 @@
-(function() {
+var path = window.path || null;
 
-  // Zoom and centers for predefined regions.
-  var centers = {
-    "Syria": [[34.74161249883172, 37.452392578125], 7],
-    "SyriaRegion" : [[36.19109202182454, 33.585205078125], 6],
-    "World" : [[41.77131167976407, 18.544921875], 4],
-    "Europe": [[48.31242790407178, 4.06494140625], 5],
-    "US": [[54.521081495443596, -126.2548828125], 4]
-  };
+/**
+* Raster Map Maker
+*/
+window.Map = {
 
-  var M = window.MapWrapper = function() {
+  // Makes image raster map
+  // puts it into an element
+  // follows up with adding an SVG to the mix and
+  // an overall container group for all the things that will
+  // live in it.
+  makeRaster : Promise.method(function(el, img, regionProp, getGeoFunc) {
 
-    var self = this;
+    var width = 960,
+      height = 800;
 
-    // public auth token
-    L.mapbox.accessToken = 'pk.eyJ1IjoiaXIwcyIsImEiOiJzRW9ObDVJIn0.Yjg0YkF_gr1teCBLJVyeoQ';
+    // append raster
+    d3.select(el).append('img')
+      .attr('src', img);
 
-    // initialize base map container
-    d3.select('#map')
-      .style({
-        width: $(window).width(),
-        height: 600
-      });
+    // add svg
+    var svg = d3.select(el).append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("viewBox", "0 0 " +width+ " "+height+"")
+      .attr("preserveAspectRatio", "xMidYMid");
 
-    this.map = L.mapbox.map('map', 'ir0s.81c9e188'); // load map
+    // add group container
+    var map = svg.append("g");
 
-    this.map.setView.apply(this.map, centers.World); // initial center
-    this.map._initPathRoot(); // init svg
+    path = d3.geo.path()
+       .projection(null);
 
-    // set up callout
-    this.callout = $('.callout').click(function(event) {
-      event.stopPropagation();
-    }).mouseover(function(){
-      self.map.dragging.disable();
-      self.map.doubleClickZoom.disable();
-    }).mouseout(function() {
-      self.map.dragging.enable();
-      self.map.doubleClickZoom.enable();
+    return Promise.resolve([map, regionProp, getGeoFunc]);
+  }),
+
+  // adds a geojson layer that will
+  // render invisible regions on top of map. Useful for lining things up
+  // during development.
+  makeRegions: function(args) {
+    var map = args[0];
+    var regionProp = args[1];
+    var getGeoFunc = args[2];
+
+    return Data[getGeoFunc]().then(function(geoData) {
+
+      var data = topojson.feature(geoData, geoData.objects[regionProp]).features;
+      var countries = map.selectAll("path.land")
+          .data(data);
+
+      countries.enter().append("path")
+        .attr("name", function(d) { return d.properties.name; })
+        .attr("class", "land")
+        .attr("d", path);
+
+      return Promise.resolve([map, regionProp, getGeoFunc]);
     });
+  },
 
-    return this;
-  };
+  // adds labels. Uses the same regions as before.
+  makeLabels: function(args) {
+    var map = args[0];
+    var regionProp = args[1];
+    var getGeoFunc = args[2];
 
-  M.prototype.zoomTo = Promise.method(function(center) {
-    this.map.setView.apply(this.map, centers[center], { animate: true });
-  });
+    return Data[getGeoFunc]().then(function(geoData) {
+      var data = topojson.feature(geoData, geoData.objects[regionProp]).features;
+      var labels = map.selectAll("text.countryname")
+          .data(data);
 
-  M.prototype.closePopups = function() {
-    this.map.closePopup();
-  };
+      var exclude = ["Israel", "Palestine"];
+      labels.enter().append("text")
+        .attr("class", "countryname")
+        .text(function(d) {
+          if (exclude.indexOf(d.properties.NAME) === -1) {
+            return d.properties.NAME;
+          } else {
+            return "";
+          }
+        })
+        .attr({
+          x : function(d) { return path.centroid(d)[0]; },
+          y : function(d) { return path.centroid(d)[1]; }
+        });
 
-  M.prototype.popup = function(datum, template) {
-    var popup = L.popup()
-          .setLatLng(datum.LatLng)
-          .setContent(JST[template]({ d : datum }));
-
-    this.map.openPopup(popup, datum.LatLng);
-    return popup;
-  };
-
-}());
+      return Promise.resolve([map, regionProp, getGeoFunc]);
+    });
+  }
+};

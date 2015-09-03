@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.config.set('jshint', {
     build: {
       options: {
-        jshintrc: '.jshintrc',
+        jshintrc: 'tasks/.jshintrc',
       },
       src: ['Gruntfile.js', 'tasks/**/*.js'],
     },

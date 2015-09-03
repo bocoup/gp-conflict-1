@@ -7,21 +7,15 @@ module.exports = function(grunt) {
     deps: [
       'bower_components/d3/d3.js',
       'bower_components/topojson/topojson.js',
-      'bower_components/d3-transform/src/d3-transform.js',
-      'bower_components/d3-geo-projection/d3.geo.projection.js',
       'bower_components/bluebird/js/browser/bluebird.js',
-      'bower_components/underscore/underscore.js',
-      'bower_components/mapbox.js/mapbox.uncompressed.js',
-      'bower_components/jquery/dist/jquery.js'
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/tipsy/src/javascripts/jquery.tipsy.js'
     ],
     src: [
       'src/js/util.js',
-      'tmp/templates.js',
       'src/js/map.js',
       'src/js/data.js',
-      'src/js/config.js',
-      'src/js/panels.js',
-      'src/js/app.js',
+      'src/js/init.js',
     ]
   });
 
@@ -43,12 +37,15 @@ module.exports = function(grunt) {
   // - copy data and html page
   // - build css
   grunt.registerTask('build',
-    ['jshint', 'jst', 'concat', 'copy', 'stylus']);
+    ['jshint', 'concat', 'copy', 'stylus']);
 
   // build production source
   // - same as build source, but with uglify instead of concat.
   grunt.registerTask('prod',
     ['jshint', 'uglify', 'copy', 'stylus']);
+
+  grunt.registerTask('prodtest',
+    ['prod', 'connect', 'watch']);
 
   grunt.registerTask('default', ['dev']);
 };

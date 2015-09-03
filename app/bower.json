@@ -21,10 +21,10 @@
     "tests"
   ],
   "dependencies": {
+    "jquery": "~2.1.4",
     "d3": "~3.5.6",
+    "topojson": "~1.6.19",
     "bluebird": "~2.9.34",
-    "underscore": "~1.8.3",
-    "mapbox.js": "~2.2.1",
-    "jquery": "~2.1.4"
+    "tipsy": "~0.1.7"
   }
 }
