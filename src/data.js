@@ -60,8 +60,7 @@
       return def.promise;
     }),
 
-    getRegion: general('data/region.json'),
-    getCamps: general('data/sites.json'),
-    getGeo: general('data/sites.json'),
+    getRegionGeo: general('data/sites.json'),
+    getSyriaGeo: general('data/syria.json')
   };
 }());

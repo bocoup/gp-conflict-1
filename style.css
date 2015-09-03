@@ -74,6 +74,7 @@ body {
   overflow:hidden;
   height: 100%;
 }
+
 #content {
   margin: 15px;
   padding: 20px;
@@ -89,16 +90,13 @@ body {
   bottom: 0px;
   right: 20px;
 }
-#map img {
-  width: 640px;
-  margin-left: -7px;
-  margin-top: 5px;
-}
+
 #map svg {
   position: absolute;
   top: 0;
   left: 0;
 }
+
 .land {
   fill: #fff;
   fill-opacity: 0;
@@ -107,37 +105,13 @@ body {
   fill: orange;
   opacity: 0.2;
 }
+
 .countryname {
   font-family: MuseoSansMedBold;
-  fill: #555;
+  fill: #444;
   text-anchor: middle;
   font-size: 16px;
 }
-.crossing {
-  fill: none;
-  stroke: black;
-  stroke-width: 1px;
-}
-.camp {
-  fill: #511;
-  cursor: pointer;
-}
-.idp {
-  fill: #dc5555;
-  cursor: pointer;
-}
-.idp.selected, .camp.selected {
-  stroke: #fafafa;
-  stroke-width: 1px;
-}
-.boundary {
-  fill: none;
-}
-
-.tipsy .campname {
-  font-family: MuseoSansMedBold;
-}
-
 /** Tipsy **/
 
 .tipsy { pointer-events: none; font-size: 16px; font-family: 'MuseoSans'; position: absolute; padding: 5px; z-index: 100000; }
