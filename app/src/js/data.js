@@ -57,7 +57,7 @@
         };
     }),
 
-    getRegionGeo: general('data/sites.json'),
+    getRegionGeo: general('data/region.json'),
     getSyriaGeo: general('data/syria.json')
   };
 }());
