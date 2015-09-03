@@ -151,7 +151,12 @@ window.Map = {
           // city label
           d3.select(this)
             .append('text')
-            .text(function(d) { return d.properties.NAME.toLowerCase(); })
+            .text(function(d) {
+              if (d.properties.NAME === 'Dar\'a') {
+                return "daraa";
+              }
+              return d.properties.NAME.toLowerCase();
+            })
             .attr({
               x : coords[0] + size * 2.5,
               y : coords[1] + size
