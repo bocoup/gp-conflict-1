@@ -15,6 +15,16 @@ window.Util = {
   */
   zeroIfNan: function(n) {
     return isNaN(n) ? 0 : +n;
+  },
+
+  tipsyIt : function(fn) {
+    return function(d) {
+      $(this).tipsy({
+        html: true,
+        gravity: 'e',
+        title: function() { return fn(d); }
+      });
+    };
   }
 };
 
