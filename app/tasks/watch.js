@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     },
     src: {
       files: ['src/js/*.js'],
-      tasks: ['jshint:src', 'concat:src']
+      tasks: ['jshint:src', 'concat:src', 'concat:individual']
     },
     build: {
       files: ['tasks/*.js', 'Gruntfile.js'],
