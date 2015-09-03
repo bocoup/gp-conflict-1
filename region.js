@@ -13,9 +13,10 @@ var makeHoverable = Promise.method(function(args) {
 
 function makeCamps(args) {
   var map = args[0];
-
-  var campsg = map.append("g");
-  var idpg = map.append("g");
+  var scaleFactor = 0.6;
+  var campsg = map.append("g").attr("class", "camps");
+  var idpg = map.append("g").attr("class", "idps");
+  var crossingsg = map.append("g").attr("class", "crossings");
 
   var tipsyIt = function(fn) {
     return function(d) {
@@ -36,81 +37,98 @@ function makeCamps(args) {
 
   return Data.getRegionGeo().then(function(camps) {
 
-    // crossings
+    // ==== crossings
     var crossingsData = topojson.feature(camps, camps.objects.crossings).features;
-    var crossingMarkers = campsg.selectAll('rect.crossing')
+    var crossingMarkersBinding = crossingsg.selectAll('g.crossing')
       .data(crossingsData);
 
     var size = 3;
-    crossingMarkers.enter()
+    var crossingsGroups =crossingMarkersBinding.enter()
+      .append('g')
+      .each(function(d) {
+        var coords = path.centroid(d);
+        d3.select(this).attr({
+          "transform": "translate("+coords[0]+","+coords[1]+")"
+        });
+      });
+
+
+    var crossingsMarkerPaths = crossingsGroups
       .append('rect')
       .each(function(d) {
         var coords = path.centroid(d);
         d3.select(this).attr({
           "class": "crossing marker",
-          x : coords[0] -size, width: size*2,
-          y : coords[1] - size, height: size*2
+          "transform": "scale("+scaleFactor+")",
+          x : -size, width: size*2,
+          y : -size, height: size*2
         });
       });
 
-    // camps
+    // ==== camps
     var campsData = topojson.feature(camps, camps.objects.camps).features;
     var sym = d3.svg.symbol()
       .type('triangle-up');
 
-    var campMarkers = campsg.selectAll('path.camp')
+    var campMarkersBinding = campsg.selectAll('g.camp')
       .data(campsData);
 
-    campMarkers.enter()
-      .append('path')
-      .attr('d', sym)
-      .style('opacity', 0)
+    var campsGroups = campMarkersBinding.enter()
+      .append('g')
+      .attr("class", "camp marker")
       .each(function(d) {
-        var coords = path.centroid(d);
-        d3.select(this).attr({
-          "class": "camp marker",
-          "transform": "translate("+coords[0]+","+coords[1]+")"
+          var coords = path.centroid(d);
+          d3.select(this).attr({
+            "transform": "translate("+coords[0]+","+coords[1]+")"
+          });
         });
-      })
-      .each(tipsyIt(function(d) {
-        return 'Refugee Camp: <span class="campname"><br/>' + d.properties.NAME + "</span>";
-      }))
-      .on('mouseover', onMouseover)
-      .on('mouseout', onMouseout);
 
-    campMarkers.transition()
+    var campMarkerPaths = campsGroups.append('path')
+        .attr('d', sym)
+        .style('opacity', 0)
+        .attr("transform", "scale("+scaleFactor+")")
+        .each(tipsyIt(function(d) {
+          return 'Refugee Camp: <span class="campname"><br/>' + d.properties.NAME + "</span>";
+        }))
+        .on('mouseover', onMouseover)
+        .on('mouseout', onMouseout);
+
+    campMarkerPaths.transition()
       .style('opacity', 1);
 
-    // idp sites
-
+    // ==== idp sites
     var idpData = topojson.feature(camps, camps.objects.idp).features;
     sym = d3.svg.symbol()
       .type('triangle-down');
 
-    var idpMarkers = idpg.selectAll('path.idp')
+    var idpMarkersBinding = idpg.selectAll('g.idp')
       .data(idpData);
 
-    idpMarkers.enter()
-      .append('path')
-      .attr('d', sym)
-      .style('opacity', 0)
+    var idpsGroups = idpMarkersBinding.enter()
+      .append('g')
       .each(function(d) {
         var coords = path.centroid(d);
         d3.select(this).attr({
           "class": "idp marker",
           "transform": "translate("+coords[0]+","+coords[1]+")"
         });
-      })
+      });
+
+    var idpMarkerPaths = idpsGroups.append('path')
+      .attr('d', sym)
+      .style('opacity', 0)
+      .attr("transform", "scale("+scaleFactor+")")
       .each(tipsyIt(function(d) {
         return 'Displacement Camp: <span class="campname"><br/>' + d.properties.NAME + "</span>";
       }))
       .on('mouseover', onMouseover)
       .on('mouseout', onMouseout);
 
-    idpMarkers.transition()
+    idpMarkerPaths.transition()
       .style('opacity', 1);
 
-    d3.select('#map').transition().delay(1000).style({
+    d3.select('#map').transition()
+      .duration(2000).delay(1000).style({
       transform: "scale(2) translate(-50px, 50px)"
     });
 
