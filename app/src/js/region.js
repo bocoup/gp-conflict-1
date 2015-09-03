@@ -18,16 +18,6 @@ function makeCamps(args) {
   var idpg = map.append("g").attr("class", "idps");
   var crossingsg = map.append("g").attr("class", "crossings");
 
-  var tipsyIt = function(fn) {
-    return function(d) {
-      $(this).tipsy({
-        html: true,
-        gravity: 'e',
-        title: function() { return fn(d); }
-      });
-    };
-  };
-
   var onMouseover = function(d) {
     d3.select(this).classed('selected', true).moveToFront();
   };
@@ -87,7 +77,7 @@ function makeCamps(args) {
         .attr('d', sym)
         .style('opacity', 0)
         .attr("transform", "scale("+scaleFactor+")")
-        .each(tipsyIt(function(d) {
+        .each(Util.tipsyIt(function(d) {
           return 'Refugee Camp: <span class="campname"><br/>' + d.properties.NAME + "</span>";
         }))
         .on('mouseover', onMouseover)
@@ -119,7 +109,7 @@ function makeCamps(args) {
       .attr('d', sym)
       .style('opacity', 0)
       .attr("transform", "scale("+scaleFactor+")")
-      .each(tipsyIt(function(d) {
+      .each(Util.tipsyIt(function(d) {
         return 'Displacement Camp: <span class="campname"><br/>' + d.properties.NAME + "</span>";
       }))
       .on('mouseover', onMouseover)

@@ -1,16 +1,15 @@
 var path = window.path || null;
 
+var rectDim = 10;
+var divider = 50000; // per 100,000 refugees
+var padding = 4;
+var countries = ["Turkey", "Iraq", "Lebanon", "Egypt"];
+var dataProp = 'Refugees_2014';
+
 var makeWaffles = Promise.method(function(args) {
   var map = args[0];
   var regionProp = args[1];
   var getGeoFunc = args[2];
-
-  // sizes
-  var countries = ["Turkey", "Iraq", "Lebanon", "Egypt"];
-  var rectDim = 10;
-  var padding = 4;
-  var divider = 50000; // per 100,000 refugees
-  var dataProp = 'Refugees_2014';
 
   return Promise.join(Data.getCountryStats(), Data[getGeoFunc]()).then(function() {
 
@@ -37,6 +36,7 @@ var makeWaffles = Promise.method(function(args) {
 
     var wafflesGroups = wafflesGroupBinding.enter()
       .append('g')
+
       .classed('waffle', true)
       .each(function(d) {
         var coords = path.centroid(d);
@@ -50,6 +50,7 @@ var makeWaffles = Promise.method(function(args) {
 
           var waffleContainer = d3.select(this)
             .attr({
+              "num": data[countryName][dataProp],
               "transform" : "translate("+(coords[0] -
                 ((Math.min(rectsPerSide, howManyRects) * (rectDim + padding)) / 2) -
                 padding)+","+(coords[1] + 10)+")",
@@ -94,8 +95,32 @@ var makeWaffles = Promise.method(function(args) {
 
       });
 
+    waffleg.selectAll('rect').each(
+      Util.tipsyIt(function(d) {
+       return "<span class='val'>"+d3.format('0,')(data[d.properties.NAME][dataProp]) + "</span> refugees";
+      })
+    );
+
     return Promise.resolve(args);
   });
+});
+
+var makeLegend = Promise.method(function(args) {
+  var legend = d3.select('.legend').append("g")
+    .attr("transform", "translate(20, 20)");
+
+  legend.append('rect')
+    .attr({
+      x: 0, y : 0, width: rectDim, height: rectDim
+    });
+
+  legend.append('text')
+    .attr({
+      x : rectDim + padding * 2, y : 10
+    })
+    .text(d3.format("0,")(divider) + " refugees");
+
+  return Promise.resolve(args);
 });
 
 Map.makeRaster('#map',
@@ -105,4 +130,5 @@ Map.makeRaster('#map',
 
   .then(Map.makeRegions)
   .then(Map.makeLabels)
-  .then(makeWaffles);
+  .then(makeWaffles)
+  .then(makeLegend);
