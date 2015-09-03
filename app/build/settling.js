@@ -78,18 +78,18 @@ var makeWaffles = Promise.method(function(args) {
                 });
             } // eo -if
 
-            rect.style('opacity', 0)
-              .transition()
-              .duration(1000)
-              .delay(function(d,i) { return i * 100; })
-              .style('opacity',1);
-
             // full rects
             if (++col > rectsPerSide) {
               col = 0;
               row++;
             }
           } // eo -for
+
+          waffleContainer.selectAll('rect').style('opacity', 0)
+              .transition()
+              .duration(100)
+              .delay(function(d,i) { return i * 100; })
+              .style('opacity',1);
         }
 
       });
