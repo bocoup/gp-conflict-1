@@ -13,6 +13,27 @@
     .boundary {
       fill: none;
     }
+
+    g.city {
+      display:none;
+    }
+    g.city[name=Aleppo] {
+      display:inherit;
+      circle {
+        r: 1;
+        transform: translate(3px, 1px);
+        stroke-width: 1px
+      }
+      text {
+        font-size: 0.5em;
+      }
+    }
+
+    g.capital {
+      text {
+        font-size: 0.5em;
+      }
+    }
   }
 }
 
