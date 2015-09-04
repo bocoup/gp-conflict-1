@@ -20,6 +20,24 @@ SYRIA_FILES = \
 	geo/syriaCapital.shp \
 	geo/syriaMajorCities.shp
 
+GERMANY_FILES = \
+	geo/germany.shp \
+	src/data/germany.json \
+	geo/germanyCapital.shp \
+	geo/germanyMajorCities.shp
+
+LEBANON_FILES = \
+	geo/lebanon.shp \
+	src/data/lebanon.json \
+	geo/lebanonCapital.shp \
+	geo/lebanonMajorCities.shp
+
+TURKEY_FILES = \
+	geo/turkey.shp \
+	src/data/turkey.json \
+	geo/turkeyCapital.shp \
+	geo/turkeyMajorCities.shp
+
 # Make region
 geo/region.shp:
 	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/region.shp \
@@ -47,7 +65,6 @@ clean_region:
 	rm -f -- $(REGION_FILES)
 
 # Make Syria
-
 geo/syria.shp:
 	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/syria.shp \
 		"${GEODIR}/unzipped/Syria/SyriaOnly/syria.geojson.shp"
@@ -68,10 +85,72 @@ src/data/syria.json: geo/syria.shp geo/syriaMajorCities.shp geo/syriaCapital.shp
 clean_syria:
 	rm -f -- $(SYRIA_FILES)
 
+# Make Germany
+geo/germany.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/germany.shp \
+		"${GEODIR}/unzipped/Germany/GermanyOnly/GermanyOnly.shp"
+
+geo/germanyCapital.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/germanyCapital.shp \
+		"${GEODIR}/unzipped/Germany/GermanyCapital/GermanyCapital.shp"
+
+geo/germanyMajorCities.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/germanyMajorCities.shp \
+		"${GEODIR}/unzipped/Germany/GermanyMajorCities/GermanyMajorCities.shp"
+
+src/data/germany.json: geo/germany.shp geo/germanyMajorCities.shp geo/germanyCapital.shp
+	node_modules/.bin/topojson -p -o src/data/germany.json --width 105 --margin 9 \
+		--cartesian -- germany=geo/germany.shp capital=geo/germanyCapital.shp \
+		cities=geo/germanyMajorCities.shp
+
+clean_germany:
+	rm -f -- $(GERMANY_FILES)
+
+# Make Lebanon
+geo/lebanon.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/lebanon.shp \
+		"${GEODIR}/unzipped/Lebanon/LebanonOnly/LebanonOnly.shp"
+
+geo/lebanonCapital.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/lebanonCapital.shp \
+		"${GEODIR}/unzipped/Lebanon/LebanonCapital/LebanonCapital.shp"
+
+geo/lebanonMajorCities.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/lebanonMajorCities.shp \
+		"${GEODIR}/unzipped/Lebanon/LebanonMajorCities/LebanonMajorCities.shp"
+
+src/data/lebanon.json: geo/lebanon.shp geo/lebanonMajorCities.shp geo/lebanonCapital.shp
+	node_modules/.bin/topojson -p -o src/data/lebanon.json --width 25 --margin 9 \
+		--cartesian -- lebanon=geo/lebanon.shp capital=geo/lebanonCapital.shp \
+		cities=geo/lebanonMajorCities.shp
+
+clean_lebanon:
+	rm -f -- $(LEBANON_FILES)
+
+# Make Turkey
+geo/turkey.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/turkey.shp \
+		"${GEODIR}/unzipped/Turkey/TurkeyOnly/TurkeyOnly.shp"
+
+geo/turkeyCapital.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/turkeyCapital.shp \
+		"${GEODIR}/unzipped/Turkey/TurkeyCapital/TurkeyCapital.shp"
+
+geo/turkeyMajorCities.shp:
+	ogr2ogr -f 'ESRI Shapefile' -a_srs ${PROJECTION} geo/turkeyMajorCities.shp \
+		"${GEODIR}/unzipped/Turkey/TurkeyMajorCities/TurkeyMajorCities.shp"
+
+src/data/turkey.json: geo/turkey.shp geo/turkeyMajorCities.shp geo/turkeyCapital.shp
+	node_modules/.bin/topojson -p -o src/data/turkey.json --width 135 --margin 9 \
+		--cartesian -- turkey=geo/turkey.shp capital=geo/turkeyCapital.shp \
+		cities=geo/turkeyMajorCities.shp
+
+clean_turkey:
+	rm -f -- $(TURKEY_FILES)
+
 # global
+clean: clean_region clean_syria clean_germany clean_lebanon clean_turkey
 
-clean: clean_region clean_syria
-
-all: $(REGION_FILES) $(SYRIA_FILES)
+all: $(REGION_FILES) $(SYRIA_FILES) $(GERMANY_FILES) $(LEBANON_FILES) $(TURKEY_FILES)
 
 .PHONY: clean all
