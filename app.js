@@ -246,16 +246,15 @@ window.Map = {
         // transform stats into a hashmap.
         stats.forEach(function(country) {
           var s = statsdata[country.Destination] = {
-            'Refugees_2011' : Util.zeroIfNan(country['2011_ref']),
-            'Refugees_2012' : Util.zeroIfNan(country['2012_ref']),
-            'Refugees_2013' : Util.zeroIfNan(country['2013_ref']),
-            'Refugees_2014' : Util.zeroIfNan(country['2014_ref']),
-            'Population': Util.zeroIfNan(country['2014_pop']),
-            'Population_2011': Util.zeroIfNan(country['2011_pop']),
-            'Population_2012': Util.zeroIfNan(country['2012_pop']),
-            'Population_2013': Util.zeroIfNan(country['2013_pop']),
-            'Population_2014': Util.zeroIfNan(country['2014_pop']),
-            'Total': Util.zeroIfNan(country['total']),
+            'Refugees_2011' : Util.zeroIfNan(country['ref_2011']),
+            'Refugees_2012' : Util.zeroIfNan(country['ref_2012']),
+            'Refugees_2013' : Util.zeroIfNan(country['ref_2013']),
+            'Refugees_2014' : Util.zeroIfNan(country['ref_2014']),
+            'Population': Util.zeroIfNan(country['pop_2014']),
+            'Population_2011': Util.zeroIfNan(country['pop_2011']),
+            'Population_2012': Util.zeroIfNan(country['pop_2012']),
+            'Population_2013': Util.zeroIfNan(country['pop_2013']),
+            'Population_2014': Util.zeroIfNan(country['pop_2014']),
             'Rate': Util.zeroIfNan(country['rate_avg']),
           };
 
