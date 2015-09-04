@@ -13,7 +13,8 @@ module.exports = function(grunt) {
       files: {
         'build/syria.css' : ['src/css/syria.styl'],
         'build/region.css' : ['src/css/region.styl'],
-        'build/settling.css' : ['src/css/settling.styl']
+        'build/settling.css' : ['src/css/settling.styl'],
+        'build/burden.css': ['src/js/burden.styl'],
       }
     }
   });
