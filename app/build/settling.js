@@ -5,6 +5,45 @@ var divider = 50000; // per 100,000 refugees
 var padding = 4;
 var countries = ["Turkey", "Iraq", "Lebanon", "Egypt"];
 var dataProp = 'Refugees_2014';
+var rectsPerSide = 0;
+
+var makeWaffle = function(waffleContainer, howManyRects, remainder) {
+  var col = 0;
+  var row = 0;
+  var rect;
+  for(var i = 0; i <= howManyRects; i++) {
+    if (i < howManyRects) {
+
+    rect = waffleContainer.append('rect')
+      .attr({
+        x : col * rectDim + col * padding,
+        y : row * rectDim + row * padding,
+        width: rectDim, height: rectDim
+      });
+
+    } else {
+      // half rect, for remainder
+      rect = waffleContainer.append('rect')
+        .attr({
+          x : col * rectDim + col * padding,
+          y : row * rectDim + row * padding,
+          width: rectDim, height: (rectDim * remainder)
+        });
+    } // eo -if
+
+    // full rects
+    if (++col > rectsPerSide) {
+      col = 0;
+      row++;
+    }
+  } // eo -for
+
+  waffleContainer.selectAll('rect').style('opacity', 0)
+    .transition()
+    .duration(100)
+    .delay(function(d,i) { return i * 100; })
+    .style('opacity',1);
+};
 
 var makeWaffles = Promise.method(function(args) {
   var map = args[0];
@@ -16,8 +55,6 @@ var makeWaffles = Promise.method(function(args) {
     var data = arguments[0][0].data;
     var geoData = arguments[0][1];
     geoData = topojson.feature(geoData, geoData.objects[regionProp]).features;
-
-    var rectsPerSide = 0;
 
     countries.forEach(function(c) {
       // find rectsPerSide divided by the divider value
@@ -56,41 +93,7 @@ var makeWaffles = Promise.method(function(args) {
                 padding)+","+(coords[1] + 10)+")",
             });
 
-          var col = 0;
-          var row = 0;
-          var rect;
-          for(var i = 0; i <= howManyRects; i++) {
-            if (i < howManyRects) {
-
-              rect = waffleContainer.append('rect')
-                .attr({
-                  x : col * rectDim + col * padding,
-                  y : row * rectDim + row * padding,
-                  width: rectDim, height: rectDim
-                });
-
-            } else {
-              // half rect, for remainder
-              rect = waffleContainer.append('rect')
-                .attr({
-                  x : col * rectDim + col * padding,
-                  y : row * rectDim + row * padding,
-                  width: rectDim, height: (rectDim * remainder)
-                });
-            } // eo -if
-
-            // full rects
-            if (++col > rectsPerSide) {
-              col = 0;
-              row++;
-            }
-          } // eo -for
-
-          waffleContainer.selectAll('rect').style('opacity', 0)
-              .transition()
-              .duration(100)
-              .delay(function(d,i) { return i * 100; })
-              .style('opacity',1);
+          makeWaffle(waffleContainer, howManyRects, remainder);
         }
 
       });
@@ -103,6 +106,29 @@ var makeWaffles = Promise.method(function(args) {
 
     return Promise.resolve(args);
   });
+});
+
+var makeRestOfWorld = Promise.method(function(args) {
+  var map = args[0];
+
+  return Data.getCountryStats().then(function(stats) {
+    var data = stats.data;
+    var keys = d3.keys(data);
+    var sumOtherCountries = 0;
+
+    keys.forEach(function(country) {
+      if (countries.indexOf(country) === -1) {
+         sumOtherCountries += data[country][dataProp];
+      }
+    });
+
+    var howManyRects = Math.floor(sumOtherCountries / divider);
+    var remainder = (sumOtherCountries % divider) / divider; // percentage
+    var waffleContainer = d3.select('.other g');
+
+    makeWaffle(waffleContainer, howManyRects, remainder);
+  });
+
 });
 
 var makeLegend = Promise.method(function(args) {
@@ -131,4 +157,5 @@ Map.makeRaster('#map',
   .then(Map.makeRegions)
   .then(Map.makeLabels)
   .then(makeWaffles)
+  .then(makeRestOfWorld)
   .then(makeLegend);
