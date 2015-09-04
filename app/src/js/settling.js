@@ -3,7 +3,7 @@ var path = window.path || null;
 var rectDim = 10;
 var divider = 50000; // per 100,000 refugees
 var padding = 4;
-var countries = ["Turkey", "Iraq", "Lebanon", "Egypt"];
+var countries = ["Turkey", "Iraq", "Lebanon", "Egypt", "Jordan"];
 var dataProp = 'Refugees_2014';
 var rectsPerSide = 0;
 
