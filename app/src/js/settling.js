@@ -114,19 +114,31 @@ var makeRestOfWorld = Promise.method(function(args) {
   return Data.getCountryStats().then(function(stats) {
     var data = stats.data;
     var keys = d3.keys(data);
+    var sum = 0;
     var sumOtherCountries = 0;
 
     keys.forEach(function(country) {
+      sum += data[country][dataProp];
       if (countries.indexOf(country) === -1) {
          sumOtherCountries += data[country][dataProp];
       }
     });
+
+    d3.select('.other').style('display', 'inherit');
+
+    d3.select('.other text').text('Rest of the World ('+d3.format('0%')(sumOtherCountries/sum)+')');
 
     var howManyRects = Math.floor(sumOtherCountries / divider);
     var remainder = (sumOtherCountries % divider) / divider; // percentage
     var waffleContainer = d3.select('.other g');
 
     makeWaffle(waffleContainer, howManyRects, remainder);
+
+    waffleContainer.selectAll('rect').each(
+      Util.tipsyIt(function(d) {
+       return "<span class='val'>"+d3.format('0,')(sumOtherCountries) + "</span> refugees";
+      })
+    );
   });
 
 });
