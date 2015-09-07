@@ -90,7 +90,7 @@ var makeWaffles = Promise.method(function(args) {
               "num": data[countryName][dataProp],
               "transform" : "translate("+(coords[0] -
                 ((Math.min(rectsPerSide, howManyRects) * (rectDim + padding)) / 2) -
-                padding)+","+(coords[1] + 10)+")",
+                padding)+","+(coords[1] + (countryName === 'Jordan' ? 30 : 10))+")",
             });
 
           makeWaffle(waffleContainer, howManyRects, remainder);

@@ -81,7 +81,7 @@ window.Map = {
         })
         .attr({
           x : function(d) { return path.centroid(d)[0]; },
-          y : function(d) { return path.centroid(d)[1]; }
+          y : function(d) { return path.centroid(d)[1] + (d.properties.NAME === 'Jordan' ? 20 : 0); }
         });
 
       return Promise.resolve([map, regionProp, getGeoFunc]);
