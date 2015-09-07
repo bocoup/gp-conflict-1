@@ -119,7 +119,7 @@ window.Map = {
         })
         .attr({
           x : function(d) { return path.centroid(d)[0]; },
-          y : function(d) { return path.centroid(d)[1]; }
+          y : function(d) { return path.centroid(d)[1] + (d.properties.NAME === 'Jordan' ? 20 : 0); }
         });
 
       return Promise.resolve([map, regionProp, getGeoFunc]);
@@ -278,7 +278,10 @@ window.Map = {
     }),
 
     getRegionGeo: general('data/region.json'),
-    getSyriaGeo: general('data/syria.json')
+    getSyriaGeo: general('data/syria.json'),
+    getTurkeyGeo: general('data/turkey.json'),
+    getLebanonGeo: general('data/lebanon.json'),
+    getGermanyGeo: general('data/germany.json')
   };
 }());
 // Preload images
@@ -301,6 +304,24 @@ window.imageRegionPairs = {
     geoProp: 'region'
   },
 
+  turkey: {
+    image : 'images/Turkey.png',
+    geoGet: 'getTurkeyGeo',
+    geoProp: 'turkey'
+  },
+
+  lebanon: {
+    image : 'images/Lebanon.png',
+    geoGet: 'getLebanonGeo',
+    geoProp: 'lebanon'
+  },
+
+  germany: {
+    image : 'images/Germany.png',
+    geoGet: 'getGermanyGeo',
+    geoProp: 'germany'
+  },
+
   worldRef: {
     image: 'images/WorldReference.png'
   }
@@ -309,3 +330,5 @@ window.imageRegionPairs = {
 Util.preloadImage(imageRegionPairs.region.image);
 Util.preloadImage(imageRegionPairs.syria.image);
 Util.preloadImage(imageRegionPairs.worldRef.image);
+// Util.preloadImage(imageRegionPairs.turkey.image);
+// Util.preloadImage(imageRegionPairs.lebanon.image);
