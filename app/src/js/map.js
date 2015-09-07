@@ -135,11 +135,13 @@ window.Map = {
             });
         });
 
-      citiesMarkers
-        .transition()
-        .delay(function(d, i) {
-          return i * 50;
-        }).style('opacity', 1);
+      Util.addOnInViewCallback(function() {
+        citiesMarkers
+          .transition()
+          .delay(function(d, i) {
+            return i * 50;
+          }).style('opacity', 1);
+      }, this);
 
       var capitalData = topojson.feature(geoData, geoData.objects.capital).features;
       var capitalMarker = citiesg.selectAll('g.capital')
@@ -172,9 +174,11 @@ window.Map = {
             });
         });
 
-      capitalMarker
-        .transition()
-        .style('opacity', 1);
+      Util.addOnInViewCallback(function() {
+        capitalMarker
+          .transition()
+          .style('opacity', 1);
+      }, this);
 
       return Promise.resolve(args);
 

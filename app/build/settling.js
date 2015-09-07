@@ -38,11 +38,15 @@ var makeWaffle = function(waffleContainer, howManyRects, remainder) {
     }
   } // eo -for
 
-  waffleContainer.selectAll('rect').style('opacity', 0)
-    .transition()
-    .duration(100)
-    .delay(function(d,i) { return i * 100; })
-    .style('opacity',1);
+  waffleContainer.selectAll('rect').style('opacity', 0);
+
+  Util.addOnInViewCallback(function() {
+    waffleContainer.selectAll('rect')
+      .transition()
+      .duration(100)
+      .delay(function(d,i) { return i * 100; })
+      .style('opacity',1);
+  }, this);
 };
 
 var makeWaffles = Promise.method(function(args) {
@@ -98,11 +102,13 @@ var makeWaffles = Promise.method(function(args) {
 
       });
 
-    waffleg.selectAll('rect').each(
-      Util.tipsyIt(function(d) {
-       return "<span class='val'>"+d3.format('0,')(data[d.properties.NAME][dataProp]) + "</span> refugees";
-      })
-    );
+    Util.addOnInViewCallback(function() {
+      waffleg.selectAll('rect').each(
+        Util.tipsyIt(function(d) {
+         return "<span class='val'>"+d3.format('0,')(data[d.properties.NAME][dataProp]) + "</span> refugees";
+        })
+      );
+    }, this);
 
     return Promise.resolve(args);
   });
@@ -157,9 +163,14 @@ var makeLegend = Promise.method(function(args) {
       x : rectDim + padding * 2, y : 10
     })
     .text(d3.format("0,")(divider) + " refugees");
-
   return Promise.resolve(args);
 });
+
+var bindInView = function(args) {
+  $('body').on('inview', function(e) {
+    Util.callInViewCallbacks();
+  });
+};
 
 Map.makeRaster('#map',
     imageRegionPairs.region.image,
@@ -170,4 +181,5 @@ Map.makeRaster('#map',
   .then(Map.makeLabels)
   .then(makeWaffles)
   .then(makeRestOfWorld)
-  .then(makeLegend);
+  .then(makeLegend)
+  .then(bindInView);

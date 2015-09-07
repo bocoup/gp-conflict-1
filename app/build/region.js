@@ -83,9 +83,11 @@ function makeCamps(args) {
         .on('mouseover', onMouseover)
         .on('mouseout', onMouseout);
 
-    campMarkerPaths.transition()
-      .delay(function(d, i) { return i * 50; })
-      .style('opacity', 1);
+    Util.addOnInViewCallback(function() {
+      campMarkerPaths.transition()
+        .delay(function(d, i) { return i * 50; })
+        .style('opacity', 1);
+    }, this);
 
     // ==== idp sites
     var idpData = topojson.feature(camps, camps.objects.idp).features;
@@ -115,26 +117,30 @@ function makeCamps(args) {
       .on('mouseover', onMouseover)
       .on('mouseout', onMouseout);
 
-    idpMarkerPaths.transition()
-      .delay(function(d, i) { return i * 50; })
-      .style('opacity', 1);
+    Util.addOnInViewCallback(function() {
+      idpMarkerPaths.transition()
+        .delay(function(d, i) { return i * 50; })
+        .style('opacity', 1);
+    }, this);
 
 
-    if (Modernizr.testProp('transform')) {
-      d3.select('#map').transition()
-        .duration(2000).delay(1000).style({
-        transform: "scale(2) translate(-50px, 50px)"
-      });
-    } else {
-      d3.select('#map').transition()
-        .duration(2000).delay(1000)
-        .styleTween("-webkit-transform", function() {
-          return d3.interpolateString(
-            "scale(1) translate(0px,0px)",
-            "scale(2) translate(-50px, 50px)"
-          );
+    Util.addOnInViewCallback(function() {
+      if (Modernizr.testProp('transform')) {
+        d3.select('#map').transition()
+          .duration(2000).delay(1000).style({
+          transform: "scale(2) translate(-50px, 50px)"
         });
-    }
+      } else {
+        d3.select('#map').transition()
+          .duration(2000).delay(1000)
+          .styleTween("-webkit-transform", function() {
+            return d3.interpolateString(
+              "scale(1) translate(0px,0px)",
+              "scale(2) translate(-50px, 50px)"
+            );
+          });
+      }
+    }, this);
 
     return Promise.resolve(args);
   });
@@ -153,6 +159,12 @@ var fixSizing = Promise.method(function(args) {
   return Promise.resolve(args);
 });
 
+var bindInView = function(args) {
+  $('body').on('inview', function(e) {
+    Util.callInViewCallbacks();
+  });
+};
+
 Map.makeRaster('#map',
     imageRegionPairs.region.image,
     imageRegionPairs.region.geoProp,
@@ -162,4 +174,5 @@ Map.makeRaster('#map',
   .then(Map.makeLabels)
   .then(Map.makeCities)
   .then(fixSizing)
-  .then(makeCamps);
+  .then(makeCamps)
+  .then(bindInView);
