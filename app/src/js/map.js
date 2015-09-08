@@ -12,18 +12,20 @@ window.Map = {
   // live in it.
   makeRaster : Promise.method(function(el, img, regionProp, getGeoFunc) {
 
-    var width = 960,
-      height = 800;
+    // var width = 960,
+    //   height = 800;
 
     // append raster
-    d3.select(el).append('img')
-      .attr('src', img);
+    // d3.select(el).append('img')
+    //   .attr('src', img);
+
 
     // add svg
     var svg = d3.select(el).append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("viewBox", "0 0 " +width+ " "+height+"")
+      // .attr("width", width)
+      // .attr("height", height)
+      // .attr("viewBox", "0 0 " +width+ " "+height+"")
+      .style('background-image', 'url('+img + ')')
       .attr("preserveAspectRatio", "xMidYMid");
 
     // add group container

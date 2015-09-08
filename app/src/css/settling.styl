@@ -1,11 +1,21 @@
 #map {
 
+  width: 686px;
+
   img {
     width: 640px;
     margin-left: -7px;
     margin-top: 5px;
   }
+
+  svg {
+    background-size: cover;
+    background-position: -19px -5px;
+  }
+
 }
+
+
 
 g.waffle, .legend, .other {
   rect {
@@ -25,8 +35,22 @@ g.waffle, .legend, .other {
 
 
 .other {
-  display: none;
   position: absolute;
-  bottom: 75px;
-  right: 100px;
+  bottom: 174px;
+  left: 40px;
 }
+
+@media screen and (min-width: 900px) {
+  .other {
+    bottom: 75px;
+    right: 40px;
+    left: auto;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .other {
+    display: none;
+  }
+}
+

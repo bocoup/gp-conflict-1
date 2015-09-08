@@ -32,10 +32,12 @@ body {
   overflow: hidden;
   border-bottom: 1px solid $c_chrome_lighter;
   position: relative;
+  max-width: 1024px;
+  margin: auto;
 
   h1 {
     color: rgb(34, 34, 34);
-    font-size: 2.5em;
+    font-size: 2em;
     line-height: 1.3em;
     font-family: MuseoSansBold;
     font-weight: 900;
@@ -46,15 +48,17 @@ body {
   }
 }
 
-#map {
-  transform: scale(1); /* needed for raster lineup w map overlay. not sure why */
-  float:right;
-  position: relative;
+#map, .map {
+  /* transform: scale(1); needed for raster lineup w map overlay. not sure why */
+  /*float:right;
+  position: relative; */
 
   svg {
-    position: absolute;
+/*    position: absolute;
     top: 0;
-    left: 0;
+    left: 0;*/
+    width: 100%;
+    height: 100%;
 
     .land {
       fill: #fff;
@@ -95,7 +99,6 @@ body {
 }
 
 #mapContainer {
-  width: 100%;
   float: right;
   display: inline-block;
   overflow:hidden;
@@ -103,13 +106,7 @@ body {
 }
 
 #content {
-  margin: 15px;
-  padding: 20px;
-  background-color:rgba(250,250,250,0.5);
-  width: 30%;
-  position: absolute;
-  top: 0;
-  left: 0;
+
   border-radius: 15px;
 }
 
@@ -120,4 +117,58 @@ body {
 }
 
 
+$padding : 3%
+
+
+.contentbody {
+  display: none;
+}
+
+.col-40 {
+  width: 97%;
+  float:left;
+  margin-left: 3%;
+}
+
+.col-60 {
+  width: 97%;
+  float:right;
+  margin-left: 3%;
+}
+
+@media screen and (min-width: 900px) {
+  .col-40 {
+    width: 34%;
+  }
+
+  .col-60 {
+    width: 60%;
+  }
+
+  .contentbody {
+    display: inherit;
+  }
+
+}
+
+@media screen and (min-width: 900px) and (max-width: 1400px) {
+  #content {
+    h1 {
+      font-size: 24px;
+    }
+
+    .contentbody {
+      display: inherit;
+    }
+  }
+
+
+  .col-40 {
+    width: 27%
+  }
+
+  .col-60 {
+    width: 67%
+  }
+}
 

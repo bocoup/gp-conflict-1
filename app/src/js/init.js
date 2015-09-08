@@ -18,6 +18,24 @@ window.imageRegionPairs = {
     geoProp: 'region'
   },
 
+  turkey: {
+    image : 'images/Turkey.png',
+    geoGet: 'getTurkeyGeo',
+    geoProp: 'turkey'
+  },
+
+  lebanon: {
+    image : 'images/Lebanon.png',
+    geoGet: 'getLebanonGeo',
+    geoProp: 'lebanon'
+  },
+
+  germany: {
+    image : 'images/Germany.png',
+    geoGet: 'getGermanyGeo',
+    geoProp: 'germany'
+  },
+
   worldRef: {
     image: 'images/WorldReference.png'
   }
@@ -26,3 +44,5 @@ window.imageRegionPairs = {
 Util.preloadImage(imageRegionPairs.region.image);
 Util.preloadImage(imageRegionPairs.syria.image);
 Util.preloadImage(imageRegionPairs.worldRef.image);
+// Util.preloadImage(imageRegionPairs.turkey.image);
+// Util.preloadImage(imageRegionPairs.lebanon.image);
