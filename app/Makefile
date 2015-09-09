@@ -6,6 +6,7 @@
 # https://www.dropbox.com/sh/76wsiew1hwkjrba/AADuUllz5kR0AWshi8wHUIFfa?dl=0
 
 PROJECTION = "http://spatialreference.org/ref/epsg/4326/"
+EUROPEPROJ = "http://spatialreference.org/ref/esri/102013/"
 
 REGION_FILES = \
 	geo/idp.shp \
@@ -99,7 +100,7 @@ geo/germanyMajorCities.shp:
 		"${GEODIR}/unzipped/Germany/GermanyMajorCities/GermanyMajorCities.shp"
 
 src/data/germany.json: geo/germany.shp geo/germanyMajorCities.shp geo/germanyCapital.shp
-	node_modules/.bin/topojson -p -o src/data/germany.json --width 105 --margin 9 \
+	node_modules/.bin/topojson -p -o src/data/germany.json --width 230 --margin 9 \
 		--cartesian -- germany=geo/germany.shp capital=geo/germanyCapital.shp \
 		cities=geo/germanyMajorCities.shp
 
@@ -120,7 +121,7 @@ geo/lebanonMajorCities.shp:
 		"${GEODIR}/unzipped/Lebanon/LebanonMajorCities/LebanonMajorCities.shp"
 
 src/data/lebanon.json: geo/lebanon.shp geo/lebanonMajorCities.shp geo/lebanonCapital.shp
-	node_modules/.bin/topojson -p -o src/data/lebanon.json --width 25 --margin 9 \
+	node_modules/.bin/topojson -p -o src/data/lebanon.json --width 10 --margin 0 \
 		--cartesian -- lebanon=geo/lebanon.shp capital=geo/lebanonCapital.shp \
 		cities=geo/lebanonMajorCities.shp
 
@@ -141,7 +142,7 @@ geo/turkeyMajorCities.shp:
 		"${GEODIR}/unzipped/Turkey/TurkeyMajorCities/TurkeyMajorCities.shp"
 
 src/data/turkey.json: geo/turkey.shp geo/turkeyMajorCities.shp geo/turkeyCapital.shp
-	node_modules/.bin/topojson -p -o src/data/turkey.json --width 135 --margin 9 \
+	node_modules/.bin/topojson -p -o src/data/turkey.json --width 540 --margin 20 \
 		--cartesian -- turkey=geo/turkey.shp capital=geo/turkeyCapital.shp \
 		cities=geo/turkeyMajorCities.shp
 

@@ -2,7 +2,8 @@ module.exports = function(grunt) {
 
   grunt.config.set('stylus', {
     options: {
-      "include css": true
+      "include css": true,
+      "compress" :false
     },
     css: {
       files: {
@@ -14,7 +15,7 @@ module.exports = function(grunt) {
         'build/syria.css' : ['src/css/syria.styl'],
         'build/region.css' : ['src/css/region.styl'],
         'build/settling.css' : ['src/css/settling.styl'],
-        'build/burden.css': ['src/js/burden.styl'],
+        'build/burden.css': ['src/css/burden.styl'],
       }
     }
   });
