@@ -33,10 +33,19 @@
 
   var callbacks = [];
 
+  /**
+  * Adds a callback to be executed as part of a group
+  * @param callback Function
+  * @param context object to execute the callback in teh context of
+  * @param args Array with potential arguments to pass to the callback
+  */
   Util.addOnInViewCallback = function(callback, context, args) {
     callbacks.push([callback, context, args]);
   };
 
+  /**
+  * Calls all avaiable callbacks
+  */
   Util.callInViewCallbacks = function() {
     callbacks.forEach(function(tripple) {
       tripple[0].call(tripple[1], tripple[2]);
@@ -66,18 +75,20 @@ window.Map = {
   // live in it.
   makeRaster : Promise.method(function(el, img, regionProp, getGeoFunc) {
 
-    var width = 960,
-      height = 800;
+    // var width = 960,
+    //   height = 800;
 
     // append raster
-    d3.select(el).append('img')
-      .attr('src', img);
+    // d3.select(el).append('img')
+    //   .attr('src', img);
+
 
     // add svg
     var svg = d3.select(el).append("svg")
-      .attr("width", width)
-      .attr("height", height)
-      .attr("viewBox", "0 0 " +width+ " "+height+"")
+      // .attr("width", width)
+      // .attr("height", height)
+      // .attr("viewBox", "0 0 " +width+ " "+height+"")
+      .style('background-image', 'url('+img + ')')
       .attr("preserveAspectRatio", "xMidYMid");
 
     // add group container
@@ -298,10 +309,7 @@ window.Map = {
     }),
 
     getRegionGeo: general('data/region.json'),
-    getSyriaGeo: general('data/syria.json'),
-    getTurkeyGeo: general('data/turkey.json'),
-    getLebanonGeo: general('data/lebanon.json'),
-    getGermanyGeo: general('data/germany.json')
+    getSyriaGeo: general('data/syria.json')
   };
 }());
 // Preload images
