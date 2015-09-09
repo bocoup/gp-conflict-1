@@ -130,7 +130,7 @@ var makeRestOfWorld = Promise.method(function(args) {
       }
     });
 
-    d3.select('.other').style('display', 'inherit');
+    // d3.select('.other').style('display', 'inherit');
 
     d3.select('.other text').text('Rest of the World ('+d3.format('0%')(sumOtherCountries/sum)+')');
 

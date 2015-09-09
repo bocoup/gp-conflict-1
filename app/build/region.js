@@ -128,7 +128,7 @@ function makeCamps(args) {
       if (Modernizr.testProp('transform')) {
         d3.select('#map').transition()
           .duration(2000).delay(1000).style({
-          transform: "scale(2) translate(-50px, 50px)"
+          transform: "scale(2) translate(0px, 60px)"
         });
       } else {
         d3.select('#map').transition()
@@ -136,7 +136,7 @@ function makeCamps(args) {
           .styleTween("-webkit-transform", function() {
             return d3.interpolateString(
               "scale(1) translate(0px,0px)",
-              "scale(2) translate(-50px, 50px)"
+              "scale(2) translate(0px, 60px)"
             );
           });
       }

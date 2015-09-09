@@ -1,1 +1,45 @@
-#map img{width:640px;margin-left:-7px;margin-top:5px}g.waffle rect,.legend rect,.other rect{fill:#f00}g.waffle rect.outline,.legend rect.outline,.other rect.outline{fill:none;stroke:#000;stroke-width:2px}.tipsy span.val{font-family:MuseoSansMedBold}.other{display:none;position:absolute;bottom:75px;right:100px}
+#map {
+  width: 670px;
+  margin: 0 auto;
+}
+#map img {
+  width: 640px;
+  margin-left: -7px;
+  margin-top: 5px;
+}
+#map svg {
+  background-size: cover;
+  background-position: -23px -9px;
+}
+g.waffle rect,
+.legend rect,
+.other rect {
+  fill: #f00;
+}
+g.waffle rect.outline,
+.legend rect.outline,
+.other rect.outline {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+.tipsy span.val {
+  font-family: MuseoSansMedBold;
+}
+.other {
+  position: absolute;
+  bottom: 174px;
+  left: 40px;
+}
+@media screen and (min-width: 900px) {
+  .other {
+    bottom: 75px;
+    right: 40px;
+    left: auto;
+  }
+}
+@media screen and (max-width: 460px) {
+  .other {
+    display: none;
+  }
+}

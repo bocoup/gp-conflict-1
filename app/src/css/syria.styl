@@ -3,9 +3,18 @@
   margin-right: 8%;
   margin-top: 50px;
 
+  width: 512px;
+  display: block;
+  margin: 0 auto;
+
   img {
     margin-left: 5px;
     margin-top: -2px;
+  }
+
+  svg {
+    background-position: 5px -2px;
+    background-repeat: no-repeat;
   }
 
   .countryname {
@@ -22,10 +31,6 @@
   }
 
 
-}
-
-#content {
-  width: 35%;
 }
 
 .minimap {
@@ -51,7 +56,51 @@
   }
 }
 
+.minimap {
+  transform: scale(0.7);
+}
 
+@media screen and (min-width: 900px) and (max-width: 1400px) {
+
+  .col-40 {
+    width: 37%
+  }
+
+  .col-60 {
+    width: 57%
+  }
+
+  .minimap {
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 1016px) {
+  .col-40 {
+    width: 37%;
+  }
+
+  .col-60 {
+    width: 57%;
+  }
+
+  .minimap {
+    transform: scale(1);
+  }
+
+}
+
+@media screen and (max-width: 602px) {
+
+  #map {
+   /* transform: scale(0.8);
+    width: auto;*/
+  }
+
+  .minimap {
+    display: none;
+  }
+}
 
 
 

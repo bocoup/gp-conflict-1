@@ -56,7 +56,7 @@ geo/crossings.shp:
 		"${GEODIR}/unzipped/Syria/BorderCrossings/Syria_BorderCrossings_2015Apr16_HIU_USDoS.shp"
 
 src/data/region.json: geo/idp.shp geo/camps.shp geo/crossings.shp geo/region.shp geo/syriaCapital.shp geo/syriaMajorCities.shp
-	node_modules/.bin/topojson -p -o src/data/region.json --width 600 --margin 20 \
+	node_modules/.bin/topojson -p -o src/data/region.json --width 600 --margin 7 \
 		--cartesian -- region=geo/region.shp camps=geo/camps.shp idp=geo/idp.shp \
 		crossings=geo/crossings.shp capital=geo/syriaCapital.shp \
 		cities=geo/syriaMajorCities.shp
