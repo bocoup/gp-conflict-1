@@ -309,10 +309,7 @@ window.Map = {
     }),
 
     getRegionGeo: general('data/region.json'),
-    getSyriaGeo: general('data/syria.json'),
-    getTurkeyGeo: general('data/turkey.json'),
-    getLebanonGeo: general('data/lebanon.json'),
-    getGermanyGeo: general('data/germany.json')
+    getSyriaGeo: general('data/syria.json')
   };
 }());
 // Preload images
