@@ -185,5 +185,25 @@ window.Map = {
       return Promise.resolve(args);
 
     });
+  },
+
+  makeToggle: function(args) {
+    var on = true;
+    $('span.icon-info2').click(function(ev) {
+      if (on) {
+        $('#map').css('display', 'none');
+        $('.minimap').css('display', 'none'); //syria.html
+        $('.legend, .other').css('display', 'none'); // settling.html
+        $('.contentbody').css('display', 'inherit');
+      } else {
+        $('#map').css('display', 'inherit');
+        $('.minimap').css('display', 'inherit'); //syria.html
+        $('.legend, .other').css('display', 'inherit'); // settling.html
+        $('.contentbody').css('display', 'none');
+      }
+      on = !on;
+    });
+
+    return Promise.resolve(args);
   }
 };

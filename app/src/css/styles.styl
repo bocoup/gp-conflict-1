@@ -120,8 +120,30 @@ body {
 $padding : 3%
 
 
+#content {
+  span.icon-info2 {
+    font-family: 'icomoon';
+    content: "\e601";
+    float: right;
+    padding-right: 20px;
+    color: $c_text_light;
+    cursor: pointer;
+  }
+
+  span.icon-info2:hover {
+    color: #222;
+  }
+}
 .contentbody {
   display: none;
+}
+
+.footer {
+  font-size: .6em;
+  font-family: MuseoSansLight;
+  width: 100%;
+  position: absolute;
+  bottom: 3px;
 }
 
 .col-40 {
@@ -149,12 +171,22 @@ $padding : 3%
     display: inherit;
   }
 
+  h1 {
+    span.icon-info2  {
+      display:none;
+    }
+  }
+
 }
 
 @media screen and (min-width: 900px) and (max-width: 1400px) {
   #content {
     h1 {
       font-size: 24px;
+
+      span.icon-info2  {
+        display:none;
+      }
     }
 
     .contentbody {

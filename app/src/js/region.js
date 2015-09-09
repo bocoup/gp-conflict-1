@@ -169,7 +169,7 @@ Map.makeRaster('#map',
     imageRegionPairs.region.image,
     imageRegionPairs.region.geoProp,
     imageRegionPairs.region.geoGet)
-
+  .then(Map.makeToggle)
   .then(Map.makeRegions)
   .then(Map.makeLabels)
   .then(Map.makeCities)

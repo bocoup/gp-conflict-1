@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     fonts: {
       expand: true,
       cwd: "src/css/fonts",
-      src: ["*.otf"],
+      src: ["*"],
       dest: "build/fonts"
     }
   });
