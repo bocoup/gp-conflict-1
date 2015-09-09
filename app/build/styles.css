@@ -249,6 +249,7 @@ body {
   }
   #content .contentbody {
     display: inherit;
+    font-size: 0.9em;
   }
   .col-40 {
     width: 27%;

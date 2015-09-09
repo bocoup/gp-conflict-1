@@ -1,5 +1,6 @@
 #map {
-  width: 686px;
+  width: 670px;
+  margin: 0 auto;
 }
 #map img {
   width: 640px;
@@ -8,7 +9,7 @@
 }
 #map svg {
   background-size: cover;
-  background-position: -19px -5px;
+  background-position: -23px -9px;
 }
 g.waffle rect,
 .legend rect,
