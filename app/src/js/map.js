@@ -189,7 +189,7 @@ window.Map = {
 
   makeToggle: function(args) {
     var on = true;
-    $('span.icon-info2').click(function(ev) {
+    $('span.icon-info2').on('click', function(ev) {
       if (on) {
         $('#map').css('display', 'none');
         $('.minimap').css('display', 'none'); //syria.html
