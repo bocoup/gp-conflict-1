@@ -6,7 +6,7 @@ Goal: Illuminate how bad the situation in Syria has become and how fast, focusin
 ## Getting things running:
 
 `npm install`
-`bower install`
+`bower update`
 `grunt dev`
 
 Visit `http://localhost:8001`.
