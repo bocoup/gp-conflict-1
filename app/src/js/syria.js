@@ -1,12 +1,5 @@
 var path = window.path || null;
 
-var bindInView = function(args) {
-  $('body').on('inview', function(e) {
-    Util.callInViewCallbacks();
-  });
-};
-
-
 Map.makeRaster('#map',
     imageRegionPairs.syria.image,
     imageRegionPairs.syria.geoProp,
@@ -15,4 +8,4 @@ Map.makeRaster('#map',
   .then(Map.makeRegions)
   .then(Map.makeLabels)
   .then(Map.makeCities)
-  .then(bindInView);
+  .then(Util.postReady);

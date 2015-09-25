@@ -50,6 +50,29 @@
     callbacks.forEach(function(tripple) {
       tripple[0].call(tripple[1], tripple[2]);
     });
+
+    callbacks = [];
+  };
+
+  /**
+   * Send postMessage to parent window
+   * @param  {String} action Name of the event action
+   * @param  {Mixed} value  Payload to be sent along with the event
+   */
+  Util.postToParent = function(action, value) {
+    var data = {
+      event: action
+    };
+
+    if (value) {
+      data.value = value;
+    }
+
+    parent.postMessage(data, '*');
+  };
+
+  Util.postReady = function() {
+    Util.postToParent('ready');
   };
 
   /**
@@ -60,4 +83,23 @@
     this.parentNode.appendChild(this);
     });
   };
+
+
+  var onMessageReceived = function(event) {
+    var data = event.data;
+
+    switch (data.event) {
+      case 'inview':
+        Util.callInViewCallbacks();
+        break;
+    }
+  };
+
+  if (window.addEventListener) {
+    window.addEventListener('message', onMessageReceived, false);
+  }
+  else {
+    window.attachEvent('onmessage', onMessageReceived, false);
+  }
+
 }());

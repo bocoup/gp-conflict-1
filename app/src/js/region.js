@@ -125,10 +125,11 @@ function makeCamps(args) {
 
 
     Util.addOnInViewCallback(function() {
+      var zoomTransform = "scale(2) translate(-16px, 65px)";
       if (Modernizr.testProp('transform')) {
         d3.select('#map').transition()
           .duration(2000).delay(1000).style({
-          transform: "scale(2) translate(0px, 60px)"
+          transform: zoomTransform
         });
       } else {
         d3.select('#map').transition()
@@ -136,7 +137,7 @@ function makeCamps(args) {
           .styleTween("-webkit-transform", function() {
             return d3.interpolateString(
               "scale(1) translate(0px,0px)",
-              "scale(2) translate(0px, 60px)"
+              zoomTransform
             );
           });
       }
@@ -159,12 +160,6 @@ var fixSizing = Promise.method(function(args) {
   return Promise.resolve(args);
 });
 
-var bindInView = function(args) {
-  $('body').on('inview', function(e) {
-    Util.callInViewCallbacks();
-  });
-};
-
 Map.makeRaster('#map',
     imageRegionPairs.region.image,
     imageRegionPairs.region.geoProp,
@@ -175,4 +170,4 @@ Map.makeRaster('#map',
   .then(Map.makeCities)
   .then(fixSizing)
   .then(makeCamps)
-  .then(bindInView);
+  .then(Util.postReady);

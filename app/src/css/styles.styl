@@ -25,12 +25,12 @@ body {
   margin: 0;
   padding: 0;
   color: rgb(34, 34, 34);
+  overflow: hidden;
+  height: 100%;
 }
 
 #container {
-  height: 520px;
-  overflow: hidden;
-  border-bottom: 1px solid $c_chrome_lighter;
+  height: 100%;
   position: relative;
   max-width: 1064px;
   margin: auto;
@@ -101,13 +101,11 @@ body {
 #mapContainer {
   float: right;
   display: inline-block;
-  overflow:hidden;
+  overflow: hidden;
   height: 100%;
 }
 
 #content {
-
-  border-radius: 15px;
 }
 
 .legend {
@@ -144,6 +142,7 @@ $padding : 3%
   width: 100%;
   position: absolute;
   bottom: 3px;
+  z-index: 999;
 }
 
 .col-40 {
@@ -177,31 +176,63 @@ $padding : 3%
     }
   }
 
-}
-
-@media screen and (min-width: 900px) and (max-width: 1400px) {
   #content {
-    h1 {
-      font-size: 24px;
+    position: relative;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(250, 250, 250, 0.8);
+    border-radius: 0;
+    padding: 0 1em;
+    box-sizing: border-box;
 
-      span.icon-info2  {
-        display:none;
-      }
-    }
-
-    .contentbody {
-      display: inherit;
-      font-size: 0.9em;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 100%;
+      width: 100%;
+      height: 100%;
+      background-color: inherit;
     }
   }
 
+  #mapContainer {
+    overflow: visible
+  }
 
+}
+
+@media screen and (min-width: 900px) and (max-width: 1400px) {
   .col-40 {
     width: 27%
   }
 
   .col-60 {
     width: 67%
+  }
+}
+
+@media screen and (max-width:899px) {
+  .js-show-text #map,
+  .js-show-text .minimap,
+  .js-show-text .legend,
+  .js-show-text .other {
+    display: none;
+  }
+
+  .js-show-text .contentbody {
+    display: inherit;
+  }
+
+  .js-hide-text #map,
+  .js-hide-text .minimap,
+  .js-hide-text .legend,
+  .js-hide-text .other {
+    display: inherit;
+  }
+
+  .js-hide-text .contentbody {
+    display: none;
   }
 }
 

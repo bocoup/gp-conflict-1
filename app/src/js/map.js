@@ -190,17 +190,9 @@ window.Map = {
   makeToggle: function(args) {
     var on = true;
     $('span.icon-info2').on('click', function(ev) {
-      if (on) {
-        $('#map').css('display', 'none');
-        $('.minimap').css('display', 'none'); //syria.html
-        $('.legend, .other').css('display', 'none'); // settling.html
-        $('.contentbody').css('display', 'inherit');
-      } else {
-        $('#map').css('display', 'inherit');
-        $('.minimap').css('display', 'inherit'); //syria.html
-        $('.legend, .other').css('display', 'inherit'); // settling.html
-        $('.contentbody').css('display', 'none');
-      }
+      $('#container')
+        .toggleClass('js-show-text', on)
+        .toggleClass('js-hide-text', !on);
       on = !on;
     });
 

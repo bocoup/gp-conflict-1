@@ -166,12 +166,6 @@ var makeLegend = Promise.method(function(args) {
   return Promise.resolve(args);
 });
 
-var bindInView = function(args) {
-  $('body').on('inview', function(e) {
-    Util.callInViewCallbacks();
-  });
-};
-
 Map.makeRaster('#map',
     imageRegionPairs.region.image,
     imageRegionPairs.region.geoProp,
@@ -182,4 +176,4 @@ Map.makeRaster('#map',
   .then(makeWaffles)
   .then(makeRestOfWorld)
   .then(makeLegend)
-  .then(bindInView);
+  .then(Util.postReady);
